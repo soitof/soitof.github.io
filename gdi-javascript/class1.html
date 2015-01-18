@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>GDI Intro to JavaScript</title>
+
+	<meta name="description" content="Intro to JavaScript curriculum was developed by Pamela Fox for Girl Develop It, adapted by Foti Hatzis. The course is meant to be taught in 2 4-hour sections. The slides are customizable according to the needs of a given class or audience.">
+	<meta name="author" content="Pamela Fox">
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<link rel="icon" href="images/favicon.ico">
+
+	<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../reveal.js/css/theme/serif.css" id="theme">
+
+	<link rel="stylesheet" href="css/gdi.css">
+
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="../reveal.js/plugin/highlight/styles/zenburn.css">
+	<!-- For the slides -->
+	<link rel="stylesheet" href="css/slides.css">
+	<!-- If use the PDF print sheet so students can print slides-->
+
+	<link rel="stylesheet" href="../reveal.js/css/print/pdf.css" type="text/css" media="print">
+
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+			<!-- Opening slide: 1 -->
+			<section>
+				<img src="images/gdi_logo_badge.png" alt="" />
+				<h3>Intro to JavaScript</h3>
+				<h4>Class 1</h4>
+				<h5 class='title-page'>Created by Pamela Fox <br>Adapted by Foti Hatzis</h5>
+			</section>
+			<!-- end: 1 -->
+
+			<!-- Welcome: 2 -->
+			<section>
+				<section>
+					<h3>Welcome!</h3>
+						<p>Girl Develop It is here to provide affordable and accessible programs to learn software through mentorship and hands-on instruction.</p>
+				</section>
+				<section>
+					<h3>Some "Rules"</h3>
+					<ul>
+						<li>We are here for you!</li>
+						<li>Every question is important</li>
+						<li>Help each other</li>
+						<li>Be Respectful</li>
+						<li>Have fun!</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Introductions</h3>
+					<ul>
+						<li>Who are you?</li>
+						<li>What spurred you into learning about development?</li>
+						<li>What do you hope to get out of the class?</li>
+					</ul>
+				</section>
+			</section>
+			<!-- end: 2 -->
+
+			<!-- JavaScript: 3-->
+			<section>
+				<section>
+					<h3>JavaScript</h3>
+					<ul>
+						<li>1995: At Netscape, Brendan Eich created "LiveScript", which gets renamed to "JavaScript".</li>
+						<li>1996: Microsoft releases "JScript", a port, for IE3.</li>
+						<li>1997: JavaScript was standardized in the "ECMAScript" spec.</li>
+						<li>2005: "AJAX" was coined, and the web 2.0 age begins.</li>
+						<li>2006: jQuery 1.0 was released.</li>
+						<li>2010: Node.JS was released.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>JavaScript cont.</h3>
+					<img src="images/webPic.png" alt="" />
+				</section>
+				<section>
+					<h3>What can it do?</h3>
+					<ul>
+						<li>Image switchers and <a href="http://dev.sencha.com/playpen/ext-core-latest/examples/lightbox/">lightboxes</a></li>
+						<li>Full featured <a href="http://grooveshark.com/">web applications</a></li>
+						<li>Keep track of users with cookies</li>
+						<li>Interactive elements like tabs, sliders and accordions</li>
+						<li><a href="http://raphaeljs.com/analytics.html">Drawing</a> and animation</li>
+					</ul>
+				</section>
+			</section>
+			<!-- end: 3 -->
+
+			<!-- Code Intro: 4-->
+			<section>
+				<section>
+					<h3>Coding JavaScript</h3>
+					<p>Simply a series of statements or commands.</p>
+					<pre><code class="javascript">
+console.log('Hello World!');
+					</code></pre>
+					<p class="fragment fade-in">Where?</p>
+					<a href="http://repl.it" class="fragment fade-in">repl.it</a>
+				</section>
+				<section>
+					<h3>Variables</h3>
+					<p>Used to store values.</p>
+					<p>You can think of this as a box or container.</p>
+					<div class="fragment fade-in">
+						<p>Two steps to variables; declare and initialize.</p>
+						<pre><code class="javascript">
+var x;
+x = 5;
+console.log(x);
+						</code></pre>
+					</div>
+				</section>
+				<section>
+					<p>Or do them both in one step</p>
+					<pre><code class="javascript">
+var y = 2;
+console.log(y);
+					</code></pre>
+					<div class="fragment fade-in">
+						<p>Re-assign the value later.</p>
+						<pre><code class="javascript">
+var z = 5;
+z = 1;
+console.log(y);
+						</code></pre>
+					</div>
+				</section>
+			</section>
+			<!-- end: 4 -->
+
+			<!-- break -->
+			<section>
+				<p class="individually">Questions?</p>
+			</section>
+			<!-- end break -->
+
+			<!-- More Code: 5 -->
+			<section>
+				<section>
+					<h3>More on variables</h3>
+					<p>In programming languages variables have data types.</p>
+					<p>Define's what kind of values they can hold.</p>
+					<p>More important in some languages than others.</p>
+				</section>
+				<section>
+					<h3>Data types</h3>
+					<p>string: an immutable string of characters.</p>
+										<pre><code class="javascript">
+var greeting = 'Hello World.';
+var restaurant = "Chipolte";
+					</code></pre>
+					<p>number: whole (6, -102) or floating point (5.8737).</p>
+					<pre><code class="javascript">
+var myAge = 25;
+var pi = 3.14;
+					</code></pre>
+				</section>
+				<section>
+					<p>boolean: Represents logical values true or false.</p>
+					<pre><code class="javascript">
+var catsAreBest = false;
+var dogsRule = true;
+					</code></pre>
+					<p>undefined: Represents a value that hasn't been defined.</p>
+					<pre><code class="javascript">
+var notDefinedYet;
+					</code></pre>
+					<p>null: Represents an explicitly empty value.</p>
+					<pre><code class="javascript">
+var goodJokes = null;
+					</code></pre>
+				</section>
+				<section>
+					<h3>Give them a name</h3>
+					<p>Variables have names, thats how you refer to them.</p>
+					<pre><code class="javascript">
+console.log(x);
+					</code></pre>
+					<p>Few "rules"</p>
+					<p>Only contain letters, numbers, $ and _</p>
+					<p>Prefer camelCase for multipleWords (instead of under_score)</p>
+				</section>
+				<section>
+					<p>Cool.</p>
+					<pre><code class="javascript">
+var numPeople, $mainHeader, _num, _Num;
+					</code></pre>
+					<p>Not cool.</p>
+					<pre><code class="javascript">
+var 2coolForSchool, soHappy!
+					</code></pre>
+				</section>
+				<section>
+					<h3>Reserved words</h3>
+					<p>Certain words are reserved by the language and cannot be used by you.</p>
+					<p>A full list can be found <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Keywords">online</a></p>
+				</section>
+			</section>
+			<!-- end: 5 -->
+
+			<!-- Another bit of code: 6 -->
+			<section>
+				<section>
+					<H3>Operators</H3>
+					<p>Allow you to manipulate variables.</p>
+					<p>Many are ones you already know.</p>
+					<p>Mathematical operators:</p>
+					<pre><code class="javascript">
++ - * / =
+					</code></pre>
+				</section>
+				<section>
+					<p>Operators allow us to perform operations or expressions.</p>
+					<pre><code class="javascript">
+2 + 2;
+x * 3;
+					</code></pre>
+					<div class="fragment fade-in">
+						<p>Variables can also store the result of these expressions.</p>
+						<pre><code class="javascript">
+var x = 2 + 2;
+var y = x * 3;
+						</code></pre>
+					</div>
+				</section>
+				<section>
+					<pre><code class="javascript">
+var name = 'Foti';
+var greeting = 'Hello ' + name;
+var question = 'how are you?';
+var friendlyGreeting = greeting + ', ' + title;
+console.log(friendlyGreeting);
+					</code></pre>
+				</section>
+				<section>
+					<H3>Loose typing</H3>
+					<p>Some languages care about types.</p>
+					<p>Certain boxes could only hold certain things.</p>
+					<p>You also had to let it know.</p>
+					<p class="fragment fade-in">JavaScript is not one of those languages.</p>
+					<pre class="fragment fade-in"><code class="javascript">
+var x;
+x = 2;
+x = 'Hi';
+					</code></pre>
+				</section>
+				<section>
+					<p>Though you can only be one type at a time.</p>
+					<pre><code class="javascript">
+var y = 2 + ' cats';
+console.log(typeof y);
+					</code></pre>
+				</section>
+			</section>
+			<!-- end: 6 -->
+
+			<!-- break -->
+			<section>
+				<p class="individually">Questions?</p>
+			</section>
+			<!-- end break -->
+
+			<!-- Exercise 1: 7 -->
+			<section>
+				<section>
+					<h3>Exercise time!</h3>
+					<a href="http://www.teaching-materials.org/javascript/exercises/variables.html">http://www.teaching-materials.org/javascript/exercises/variables.html</a>
+				</section>
+			</section>
+			<!-- end: 7 -->
+
+			<!-- Functions: 8 -->
+			<section>
+				<section>
+					<h3>Functions</h3>
+					<p>Re-usable chunks of code.</p>
+					<p>Need to be defined before they can be used.</p>
+					<pre><code class="javascript">
+function sayHello() {
+  console.log('Hi Foti!');
+}
+					</code></pre>
+					<p>Then call it all you want.</p>
+					<pre><code class="javascript">
+sayHello();
+					</code></pre>
+				</section>
+				<section>
+					<p>Beware of circular dependancies.</p>
+					<pre><code class="javascript">
+function chicken() {
+    egg();
+}
+
+function egg() {
+    chicken();
+}
+
+egg();
+					</code></pre>
+				</section>
+				<section>
+					<h3>Arguments</h3>
+					<p>Functions can accept arguments.</p>
+					<p>Extra pieces of information the function needs to do it's work.</p>
+					<pre><code class="javascript">
+function sayMyName(name) {
+  console.log('Hi, ' + name);
+}
+
+sayMyName('Foti');
+sayMyName('Testy McTesterFace');
+					</code></pre>
+				</section>
+				<section>
+					<pre><code class="javascript">
+function addNumbers(num1, num2) {
+  var result = num1 + num2;
+  console.log(result);
+}
+
+addNumbers(7, 21);
+addNumbers(3, 10);
+					</code></pre>
+					<pre><code class="javascript">
+var number = 10;
+addNumbers(number, 2);
+addNumbers(number, 4);
+					</code></pre>
+				</section>
+			</section>
+			<!-- end: 8 -->
+
+			<!-- break -->
+			<section>
+				<p class="individually">Questions?</p>
+			</section>
+			<!-- end break -->
+
+			<!-- Return values: 9 -->
+			<section>
+				<section>
+					<h3>Return values</h3>
+					<p>Functions can also give things back.</p>
+					<p>Values that are returned as a result of the function.</p>
+					<pre><code class="javascript">
+function addNumbers(num1, num2) {
+  var result = num1 + num2;
+  return result; // Anything after this line won't be executed
+}
+
+var sum = addNumbers(5, 2);
+console.log(sum);
+					</code></pre>
+				</section>
+				<section>
+					<h3>Return values cont.</h3>
+					<p>You can use function calls in expressions.</p>
+					<pre><code class="javascript">
+var biggerSum = addNumbers(2, 5) + addNumbers(3, 2);
+					</code></pre>
+					<p>You can even call functions inside function calls.</p>
+					<pre><code class="javascript">
+var hugeSum = addNumbers(addNumbers(5, 2), addNumbers(3, 7));
+					</code></pre>
+				</section>
+			</section>
+
+			<!-- end: 9 -->
+
+			<!-- Scope: 10 -->
+			<section>
+				<section>
+					<h3>Scope</h3>
+					<p>JavaScript variables have "function scope".</p>
+					<p>That means they are visible in the function where they're defined.</p>
+					<p>You can see scopes above you, but not below you.</p>
+				</section>
+				<section>
+					<p>A variable with "local" scope.</p>
+					<pre><code class="javascript">
+function addNumbers(num1, num2) {
+  var localResult = num1 + num2;
+  console.log("The local result is: " + localResult);
+}
+addNumbers(5, 7);
+console.log(localResult);
+					</code></pre>
+					<p>A variable with "global" scope.</p>
+					<pre><code class="javascript">
+var globalResult;
+function addNumbers(num1, num2) {
+  globalResult = num1 + num2;
+  console.log("The global result is: " + globalResult);
+}
+addNumbers(5, 7);
+console.log(globalResult);
+					</code></pre>
+				</section>
+				<section>
+					<h3>What is this?</h3>
+					<p>First, know that all functions in JavaScript have properties. And when a function executes, it gets the 'this' property.</p>
+					<p>The 'this' is a variable with the value of the object that invokes the function where 'this' is used.</p></p>
+				</section>
+			</section>
+			<!-- end: 10 -->
+
+			<!-- break -->
+			<section>
+				<p class="individually">Questions?</p>
+			</section>
+			<!-- end break -->
+
+			<!-- Exercise 2: 11 -->
+			<section>
+				<section>
+					<h3>Exercise time!</h3>
+					<a href="http://www.teaching-materials.org/javascript/exercises/functions.html">http://www.teaching-materials.org/javascript/exercises/functions.html</a>
+				</section>
+			</section>
+			<!-- end: 11 -->
+
+			<!-- If / else: 12 -->
+			<section>
+				<section>
+					<h3>The if statement</h3>
+					<p>Lets our code make choices.</p>
+					<p>Up till now all code has been executed.</p>
+					<p>An if statement can exclude or add code to be executed.</p>
+				</section>
+				<section>
+					<pre><code class="javascript">
+if (condition) {
+  // statements to execute
+}
+					</code></pre>
+					<div class="fragment fade-in">
+						<pre><code class="javascript">
+var x = 5;
+
+if (x > 0) {
+  console.log('x is a positive number!');
+}
+						</code></pre>
+					</div>
+				</section>
+			</section>
+			<!-- end: 12 -->
+
+			<!-- break -->
+			<section>
+				<p class="individually">Questions?</p>
+			</section>
+			<!-- end break -->
+
+			<!-- More operators: 13 -->
+			<section>
+				<section>
+					<h3>Conditional operators</h3>
+					<p>Use these operators to compare two values for equality, inequality, or difference.</p>
+					<p>These operatorse evaluate to true or false.</p>
+					<table>
+						<tr>
+							<td>==</td><td>Equal</td>
+						</tr>
+						<tr>
+							<td>!=</td><td>Not Equal</td>
+						</tr>
+						<tr>
+							<td>&lt;</td><td>Less than</td>
+						</tr>
+						<tr>
+							<td>></td><td>Greater than</td>
+						</tr>
+						<tr>
+							<td>&lt;=</td><td>Less than or Equal to</td>
+						</tr>
+						<tr>
+							<td>>=</td><td>Greater than or Equal to</td>
+						</tr>
+					</table>
+						<p>Careful: Do not confuse = (the assignment operator) with ==.</p>
+				</section>
+				<section>
+					<h3>Logical Operators</h3>
+					<table>
+						<tr>
+							<td>&amp;&amp;</td><td>And</td>
+						</tr>
+						<tr>
+							<td>||</td><td>Or</td>
+						</tr>
+						<tr>
+							<td>!</td><td>Not</td>
+						</tr>
+					</table>
+				</section>
+				<section>
+					<p>When combining together multiple conditions, use parantheses to group.</p>
+					<pre><code class="javascript">
+var myAge = 28;
+if ((myAge >= 0 &amp;&amp; myAge &lt; 3)  || myAge > 90) {
+  console.log('You\'re not quite in your peak.');
+}
+					</code></pre>
+				</section>
+			</section>
+			<!-- end: 13 -->
+
+			<!-- Even more operator stuff: 14 -->
+			<section>
+				<section>
+					<h3>Truthy vs Falsey</h3>
+					<p>If you don't use a comparison or logical operator, JavaScript tries to figure out if the value is "truth-y".</p>
+					<p>Best to explicitly check for what you want.</p>
+					<pre><code class="javascript">
+var catsRule = true;
+if (catsRule) {
+  console.log('Yay cats!');
+}
+					</code></pre>
+				</section>
+				<section>
+					<p>Values that are "false-y": false, the empty string (""), the number 0, undefined, null.</p>
+					<pre><code class="javascript">
+var name = '';
+if (name) {
+  console.log('Hello, ' + name);
+}
+var points = 0;
+if (points) {
+  console.log('You have ' + points + ' points');
+}
+var firstName;
+if (firstName) {
+  console.log('Your name is ' + firstName);
+}
+					</code></pre>
+				</section>
+				<section>
+					<h3>Short-Circuit Evaluation</h3>
+					<p>JavaScript evaluates logical operators from left to right and stops evaluating as soon as it knows the answer.</p>
+					<p>(false &amp;&amp; anything) =&gt; false </p>
+					<p>(true || anything) =&gt; true</p>
+					<pre><code class="javascript">
+var nominator = 5;
+var denominator = 0;
+if (denominator != 0 || (nominator/denominator &gt; 0)) {
+  console.log('Thats a valid, positive fraction');
+}
+					</code></pre>
+				</section>
+				<section>
+					<h3>The if/else statement</h3>
+					<p>Use else to give an alternative statement to execute.</p>
+					<p>Must always used with an if.</p>
+					<pre><code class="javascript">
+var age = 28;
+if (age > 16) {
+  console.log('Yay, you can drive!');
+} else {
+  console.log('Sorry, but you have ' + (16 - age) + ' years til you can drive.');
+}
+					</code></pre>
+				</section>
+				<section>
+					<h3>The if/else if/else statement</h3>
+					<p>How many times can I put if and else together.</p>
+					<p>As many as you like with the if/else if/else.</p>
+					<p>You can use else if if you have multiple exclusive conditions to check.</p>
+				</section>
+				<section>
+					<pre><code class="javascript">
+var age = 20;
+if (age >= 35) {
+  console.log('You can vote AND hold any place in government!');
+} else if (age >= 25) {
+  console.log('You can vote AND run for the Senate!');
+} else if (age >= 18) {
+  console.log('You can vote!');
+} else {
+  console.log('You have no voice in government!');
+}
+					</code></pre>
+				</section>
+			</section>
+			<!-- end: 14 -->
+
+			<!-- break -->
+			<section>
+				<p class="individually">Questions?</p>
+			</section>
+			<!-- end break -->
+
+			<!-- Exercise 3: 15 -->
+			<section>
+				<section>
+					<h3>Exercise time!</h3>
+					<a href="http://www.teaching-materials.org/javascript/exercises/ifelse.html">http://www.teaching-materials.org/javascript/exercises/ifelse.html</a>
+				</section>
+			</section>
+			<!-- end: 15 -->
+
+			<!-- While loops: 16 -->
+			<section>
+				<section>
+					<h3>The while loop</h3>
+					<p>Sometimes you want to do the same bit of code over again.</p>
+					<p>No reason to rewrite it. Just use a loop.</p>
+					<pre><code class="javascript">
+while (expression) {
+  // statements to repeat
+}
+					</code></pre>
+					<p>Loops continue to run, till the expression evaluates to false.</p>
+				</section>
+				<section>
+					<pre><code class="javascript">
+var x = 0;
+while (x &lt; 5) {
+  console.log(x);
+  x = x + 1;
+}
+					</code></pre>
+					<p class="fragment fade-in">What is an issue that could occur here.</p>
+				</section>
+				<section>
+					<h3>The for loop</h3>
+					<p>What if you had a better idea of how many times you want count to run.</p>
+					<p>Like a certain count.</p>
+					<p>This is where a for loop would come in handy.</p>
+					<pre><code class="javascript">
+for (initialize; condition; update) {
+  // statements to repeat
+}
+					</code></pre>
+					<pre><code class="javascript">
+for (var i = 0; i &lt; 5; i = i + 1) {
+  console.log(i);
+}
+					</code></pre>
+				</section>
+			</section>
+			<!-- end: 16 -->
+
+			<!-- Arrays: 17 -->
+			<section>
+				<section>
+					<h3>Arrays</h3>
+					<p>Can't talk about for loops without talking about arrays.</p>
+					<p>An array is a type of data-type that holds an ordered list of values, of any type.</p>
+					<p>Arrays and for loops are bff's.</p>
+					<pre><code class="javascript">
+var arrayName = [element0, element1, ...];
+					</code></pre>
+				</section>
+				<section>
+					<pre><code class="javascript">
+var rainbowColors = ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet'];
+var raceWinners = [33, 72, 64];
+var myFavoriteThings = ['Cake', 2113, 'Movies'];
+					</code></pre>
+					<p>The length property reports the size of the array.</p>
+					<pre><code class="javascript">
+console.log(rainbowColors.length);
+					</code></pre>
+				</section>
+				<section>
+					<p>You can access (or index) items with "bracket notation".</p>
+					<p>Take note: the index starts at 0.</p>
+					<pre><code class="javascript">
+var arrayItem = arrayName[indexNum];
+					</code></pre>
+					<pre><code class="javascript">
+var rainbowColors = ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet'];
+var firstColor = rainbowColors[0];
+var lastColor = rainbowColors[6];
+					</code></pre>
+				</section>
+				<section>
+					<p>You can also use bracket notation to change the item in an array.</p>
+					<pre><code class="javascript">
+var myFavoriteThings = ['Cake', 2113, 'Movies'];
+myFavoriteThings[0] = 'Celery Root';
+					</code></pre>
+					<p>You can also use bracket notation to change the item in an array.</p>
+					<pre><code class="javascript">
+rainbowColors[4] = 'Black';
+					</code></pre>
+					<p>You can also use methods or functions.</p>
+					<pre><code class="javascript">
+rainbowColors.push('Silver');
+					</code></pre>
+				</section>
+				<section>
+					<p>Use for loops for easy iteration.</p>
+					<p>Easily process each item in an array.</p>
+					<pre><code class="javascript">
+var rainbowColors = ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet'];
+for (var i = 0; i &lt; rainbowColors.length; i++) {
+  console.log(rainbowColors[i]);
+}
+					</code></pre>
+				</section>
+			</section>
+			<!-- end: 17 -->
+
+			<!-- break -->
+			<section>
+				<p class="individually">Questions?</p>
+			</section>
+			<!-- end break -->
+
+			<!-- Exercise 4: 18 -->
+			<section>
+				<section>
+					<h3>Exercise time!</h3>
+					<a href="http://www.teaching-materials.org/javascript/exercises/arrays.html">http://www.teaching-materials.org/javascript/exercises/arrays.html</a>
+				</section>
+			</section>
+			<!-- end: 18 -->
+
+
+			<!-- Till tomorrow: 19 -->
+			<section>
+				<section>
+					<p>All for now.</p>
+					<p>Pick it up tomorrow.</p>
+				</section>
+				<section>
+					<p class="blue-links">Questions?</p>
+				</section>
+			</section>
+			<!-- end: 19 -->
+
+		</div> <!-- end slides -->
+		<footer>
+			<span class='footer-title'>JavaScript Libraries: Intro to jQuery</span>
+			<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+		</footer>
+	</div> <!-- end reveal -->
+	<script src="../reveal.js/lib/js/head.min.js"></script>
+	<script src="../reveal.js/js/reveal.min.js"></script>
+
+	<script>
+		// Full list of configuration options available here:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+
+			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
+
+			// Optional libraries used to extend on reveal.js
+			dependencies: [
+				{ src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../reveal.js/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+				{ src: '../reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+			]
+		});
+
+	</script>
+</body>
+</html>
