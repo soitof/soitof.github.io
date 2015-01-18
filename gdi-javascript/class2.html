@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>GDI Intro to JavaScript</title>
+
+	<meta name="description" content="Intro to JavaScript curriculum was developed by Pamela Fox for Girl Develop It, adapted by Foti Hatzis. The course is meant to be taught in 2 4-hour sections. The slides are customizable according to the needs of a given class or audience.">
+	<meta name="author" content="Pamela Fox">
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<link rel="icon" href="images/favicon.ico">
+
+	<link rel="stylesheet" href="reveal/css/reveal.css">
+	<link rel="stylesheet" href="reveal/css/theme/serif.css" id="theme">
+
+	<link rel="stylesheet" href="css/gdi.css">
+
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="reveal/plugin/highlight/styles/zenburn.css">
+	<!-- For the slides -->
+	<link rel="stylesheet" href="css/slides.css">
+	<!-- If use the PDF print sheet so students can print slides-->
+
+	<link rel="stylesheet" href="reveal/css/print/pdf.css" type="text/css" media="print">
+
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+			<!-- Opening slide: 1 -->
+			<section>
+				<img src="images/gdi_logo_badge.png" alt="" />
+				<h3>Intro to JavaScript</h3>
+				<h4>Class 2</h4>
+				<h5 class='title-page'>Created by Pamela Fox <br>Adapted by Foti Hatzis</h5>
+			</section>
+			<!-- end: 1 -->
+
+			<!-- Review: 2 -->
+			<section>
+				<section>
+					<h3>Review</h3>
+					<p class="fragment fade-in">Variables</p>
+					<p class="fragment fade-in">Functions</p>
+					<p class="fragment fade-in">Operators</p>
+					<p class="fragment fade-in">If/Else If/ Else</p>
+					<p class="fragment fade-in">Loops</p>
+					<p class="fragment fade-in">Arrays</p>
+				</section>
+			</section>
+			<!-- end: 2 -->
+
+			<!-- break -->
+			<section>
+				<p class="individually">Questions?</p>
+			</section>
+			<!-- end break -->
+
+			<!-- Objects: 3 -->
+			<section>
+				<section>
+					<h3>Objects</h3>
+					<p>
+						Objects are a data type that let us store a collection of properties and methods.
+					</p>
+					<pre><code class="javascript">
+var objectName = { 
+  propertyName: propertyValue,
+  propertyName: propertyValue,
+  ...
+};
+					</code></pre>
+				</section>
+				<section>
+					<pre><code class="javascript">
+var aboutMe = {
+  hometown: "The moon.",
+  hair: "brown"
+}; 
+					</code></pre>
+					<pre><code class="javascript">
+var lizzieTheCat = {
+  age: 18,
+  furColor: "grey",
+  likes: ["catnip", "milk"],
+  birthday: {"month": 7, "day": 17, year: 1994}
+};
+					</code></pre>
+				</section>
+				<section>
+					<p>Access properties using "dot notation".</p>
+					<pre><code class="javascript">
+var aboutMe = {
+  hometown: "The moon.",
+  hair: "brown"
+}; 
+
+var myHometown = aboutMe.hometown;
+					</code></pre>
+					<p>Or using "bracket notation" (like arrays).</p>
+					<pre><code class="javascript">
+var myHair = aboutMe["hair"];
+					</code></pre>
+				</section>
+				<section>
+					<p>Non-existent properties will return undefined.</p>
+					<pre><code class="javascript">
+var myGender = aboutMe["gender"];
+					</code></pre>
+				</section>
+			</section>
+			<!-- end: 3 -->
+
+			<!-- More objects: 4 -->
+			<section>
+				<section>
+					<h3>Changing Objects</h3>
+					<p>Use dot or bracket notation with the assignment operator to change objects.</p>
+					<p>Change existing properties.</p>
+					<pre><code class="javascript">
+var aboutMe = {
+  hometown: "The moon.",
+  hair: "brown"
+}; 
+aboutMe.hair = "blue";
+					</code></pre>
+				</section>
+				<section>
+					<p>Or add new properties</p>
+					<pre><code class="javascript">
+aboutMe.gender = "male";
+					</code></pre>
+					<p>You can also delete properties.</p>
+					<pre><code class="javascript">
+delete aboutMe.gender;
+					</code></pre>
+				</section>
+				<section>
+					<h3>Arrays of Objects</h3>
+					<p>Since arrays can hold any data type, they can also hold objects</p>
+					<pre><code class="javascript">
+var myCats = [
+  {name: "Lizzie", 
+   age: 18},
+  {name: "Daemon",
+   age: 1}
+];
+
+for (var i = 0; i &lt; myCats.length; i++) {
+  var myCat = myCats[i];
+  console.log(myCat.name + ' is ' + myCat.age + ' years old.');
+}
+					</code></pre>
+				</section>
+				<section>
+					<h3>Objects as Arguments</h3>
+					<p>Just like other data types, objects can be passed into functions.</p>
+					<pre><code class="javascript">
+var lizzieTheCat = {
+  age: 18,
+  furColor: "grey",
+  likes: ["catnip", "milk"],
+  birthday: {"month": 7, "day": 17, year: 1994}
+}
+
+function describeCat(cat) {
+  console.log("This cat is " + cat.age + " years old with " + cat.furColor + " fur.");
+}
+
+describeCat(lizzieTheCat);
+					</code></pre>
+				</section>
+			</section>
+			<!-- end: 4 -->
+
+			<!-- break -->
+			<section>
+				<p class="individually">Questions?</p>
+			</section>
+			<!-- end break -->
+
+			<!-- Exercise 1: 5 -->
+			<section>
+				<section>
+					<h3>Exercise time!</h3>
+					<a href="http://www.teaching-materials.org/javascript/exercises/objects.html">http://www.teaching-materials.org/javascript/exercises/objects.html</a>
+				</section>
+			</section>
+			<!-- end: 5 -->
+
+			<!-- Object methods: 6 -->
+			<section>
+				<section>
+					<h3>Object methods</h3>
+					<p>Object properties can also be functions. Object functions are called "methods".</p>
+					<pre><code class="javascript">
+var lizzieTheCat = {
+  age: 18,
+  furColor: 'grey',
+  meow: function() {
+    console.log('meowww');
+  },
+  eat: function(food) {
+    console.log('Yum, I love ' + food);  
+  },
+  sleep: function(numMinutes) {
+    for (var i = 0; i &lt; numMinutes; i++) {
+      console.log('z');
+    }
+  }
+};
+					</code></pre>
+				</section>
+				<section>
+					<p>Call object methods using dot notation.</p>
+					<pre><code class="javascript">
+lizzieTheCat.meow();
+lizzieTheCat.eat('brown mushy stuff');
+lizzieTheCat.sleep(10);
+					</code></pre>
+				</section>
+				<section>
+					<h3>Built-in Objects</h3>
+					<p>JavaScript provides a variety of built-in objects.</p>
+					<table>
+						<tr>
+							<td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></td>
+							<td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></td>
+						</tr>
+						<tr>
+							<td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></td>
+							<td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></td>
+						</tr>
+						<tr>
+							<td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp</a></td>
+							<td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a></td>
+						</tr>
+						<tr>
+							<td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math">Math</a></td>
+						</tr>
+					</table>
+				</section>
+			</section>
+
+			<!-- break -->
+			<section>
+				<p class="individually">Questions?</p>
+			</section>
+			<!-- end break -->
+
+			<!-- JSON: 6 -->
+			<section>
+				<section>
+					<h3>JSON</h3>
+					<p>A lightweight way format used for sending data.</p>
+					<p>It is easy for humans to read and write.</p>
+					<p>It is easy for machines to parse and generate.</p>
+				</section>
+				<section>
+					<p>Can be simple.</p>
+					<pre><code class="javascript">
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "isAlive": true,
+  "age": 25
+}
+					</code></pre>
+				</section>
+				<section>
+					<p>Can also be complex.</p>
+					<pre><code class="javascript">
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "isAlive": true,
+  "age": 25,
+  "address": {
+    "streetAddress": "21 2nd Street",
+    "city": "New York",
+    "state": "NY",
+    "postalCode": "10021-3100"
+  },
+  "phoneNumbers": [
+    {
+      "type": "home",
+      "number": "212 555-1234"
+    },
+    {
+      "type": "office",
+      "number": "646 555-4567"
+    }
+  ],
+  "children": [],
+  "spouse": null
+}
+					</code></pre>
+				</section>
+				<section>
+					<p>Made of a collection of name/value pairs.</p>
+					<p>In various languages, this is realized as an object.</p>
+					<p>Language independent.</p>
+				</section>
+			</section>
+			<!-- end: 6 -->
+
+			<!-- break -->
+			<section>
+				<p class="individually">Questions?</p>
+			</section>
+			<!-- end break -->
+
+			<!-- DOM: 7 -->
+			<section>
+				<section>
+					<h3>HTML</h3>
+					<img src="images/html_review.png" alt="" />
+				</section>
+				<section>
+					<h3>The DOM</h3>
+					<p>
+						Allows us to represent and interacting with objects in HTML, XHTML and XML documents. <br>
+						Objects in the DOM tree may be addressed and manipulated by using methods on the objects.
+					</p>
+				</section>
+				<section>
+					<p>The DOM is represented in memory as a tree.</p>
+					<img src="images/dom_tree.png.png" alt="" />
+				</section>
+			</section>
+			<!-- end: 7 -->
+
+			<!-- JS on the page: 8 -->
+			<section>
+				<section>
+					<h3>JS in HTML</h3>
+					<p>You can put JavaScript inside a script tag (commonly at bottom of the page).</p>
+					<pre><code class="html">
+  ...
+  &lt;script&gt;
+  console.log('IM ON A WEBPAGE!');
+  &lt;/script&gt;
+ &lt;/body&gt;
+&lt;/html&gt;
+					</code></pre>
+				</section>
+					<section>
+					<p>You can also put JavaScript in an external file and reference it.</p>
+					<pre><code class="html">
+  ...
+  &lt;script src="app.js"&gt;&lt;/script&gt;
+ &lt;/body&gt;
+&lt;/html&gt;
+					</code></pre>
+				</section>
+			</section>
+			<!-- end: 8 -->
+
+			<!-- Back to the DOM: 9 -->
+			<section>
+				<section>
+					<h3>DOM Access</h3>
+					<p>On every webpage, the document object gives us ways of accessing and changing the DOM.</p>
+					<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Document">document</a>
+						 is a built in object.</p>
+					<pre><code class="javascript">
+var bodyNode = document.body;
+var htmlNode = document.body.parentNode;
+for (var i = 0; i &lt; document.body.childNodes.length; i++) {
+  var childNode = document.body.childNodes[i];
+}
+					</code></pre>
+				</section>
+				<section>
+					<p>Every DOM "node" has properties that let us traverse <br />the DOM like a tree:</p>
+					<p>parentNode, childNodes, firstChild, prevSibling, nextSibling.</p>
+				</section>
+				<section>
+					<p>Why climb through the trees?</p>
+					<p>Isn't there a better way to get around?</p>
+				</section>
+				<section>
+					<h3>DOM Access: Easier</h3>
+					<p>The document object also provides methods for finding DOM nodes without traversing.</p>
+					<pre><code class="javascript">
+document.getElementById(id);
+					</code></pre>
+					<pre><code class="html">
+&lt;img id="mainpicture" src="http://placekitten.com/200/300"&gt;
+					</code></pre>
+					<pre><code class="javascript">
+var img = document.getElementById('mainpicture');
+					</code></pre>
+				</section>
+				<section>
+					<pre><code class="javascript">
+document.getElementsByTagName(tagName);
+					</code></pre>
+					<pre><code class="html">
+&lt;li class="catname"&lt;Lizzie&gt;/li&gt;
+&lt;li class="catname"&lt;Daemon&gt;/li&gt;
+					</code></pre>
+					<pre><code class="javascript">
+var listItems = document.getElementsByTagName('li');
+for (var i =0; i &lt; listItems.length; i++) {
+  var listItem = listItems[i];
+}
+					</code></pre>
+				</section>
+				<section>
+					<h3>DOM Access: Even Easier</h3>
+					<p>The HTML5 spec includes a few even more convenient methods.</p>
+					<pre><code class="javascript">
+document.getElementsByClassName(className);
+					</code></pre>
+					<pre><code class="javascript">
+var catNames = document.getElementsByClassName('catname');
+for (var i =0; i &lt; catNames.length; i++) {
+  var catName = catNames[i];
+}
+					</code></pre>
+				</section>
+			</section>
+			<!-- end: 9 -->
+
+			<!-- break -->
+			<section>
+				<p class="individually">Questions?</p>
+			</section>
+			<!-- end break -->
+
+			<!-- Even more DOM: 10 -->
+			<section>
+				<section>
+					<h3>DOM Nodes: Attributes</h3>
+					<p>You can access and change attributes of DOM nodes using dot notation.</p>
+					<pre><code class="html">
+&lt;img id="mainpicture" src="http://placekitten.com/200/300"&gt;
+					</code></pre>
+					<pre><code class="javascript">
+var img = document.getElementById('mainpicture');
+var oldSrc = img.src;
+img.src = 'http://placekitten.com/100/500';
+					</code></pre>
+				</section>
+				<section>
+					<p>Or getAttribute/setAttribute.</p>
+					<pre><code class="javascript">
+var oldSrc = img.getAttribute('src');
+img.setAttribute('src', 'http://placekitten.com/100/500');
+					</code></pre>
+					<p>To set class, use the property className.</p>
+					<pre><code class="javascript">
+img.className = "picture";
+					</code></pre>
+				</section>
+			</section>
+			<!-- end: 10 -->
+
+			<!-- Still more DOM: 11 -->
+			<section>
+				<section>
+					<h3>DOM Nodes: Styles</h3>
+					<p>You can change styles on DOM nodes via the style property.</p>
+					<pre><code class="javascript">
+body {
+  color: red;
+}
+					</code></pre>
+					<pre><code class="javascript">
+document.body.style.color = 'red';
+					</code></pre>
+				</section>
+				<section>
+					<p>CSS property names with a "-" must be camelCased and number properties must have a unit.</p>
+					<pre><code class="javascript">
+body {
+  background-color: pink;
+  padding-top: 10px;
+}
+					</code></pre>
+					<pre><code class="javascript">
+document.body.style.backgroundColor = 'pink';
+document.body.style.paddingTop = '10px';
+					</code></pre>
+				</section>
+			</section>
+			<!-- end: 11 -->
+
+			<!-- break -->
+			<section>
+				<p class="individually">Questions?</p>
+			</section>
+			<!-- end break -->
+
+			<!-- Even still more DOM: 12 -->
+			<section>
+				<section>
+					<h3>DOM innerHTML</h3>
+					<p>Each DOM node has an innerHTML property with the HTML of all its children.</p>
+					<pre><code class="javascript">
+document.body.innerHTML;
+					</code></pre>
+					<p>You can set innerHTML yourself to change the contents of the node.</p>
+					<pre><code class="html">
+document.body.innerHTML = "&lt;h1&gt;Oh Noes!&lt;/h1&gt; &lt;p&gt;I just changed the whole page!&lt;/p&gt;"
+					</code></pre>
+				</section>
+				<section>
+					<p>But that means the page is destroyed.</p>
+					<p>You can also just add to the innerHTML instead of replace.</p>
+					<pre><code class="html">
+document.body.innerHTML += "...just adding this bit at the end of the page.";
+					</code></pre>
+				</section>
+			</section>
+			<!-- end: 12 -->
+
+			<!-- Last bit of DOM: 13 -->
+			<section>
+				<section>
+					<h3>DOM Modifying</h3>
+					<p>The document object also provides ways to create nodes from scratch.</p>
+					<pre><code class="javascript">
+document.createElement(tagName);
+document.createTextNode(text);
+document.appendChild();
+					</code></pre>
+					<pre><code class="javascript">
+var newImg = document.createElement('img');
+newImg.src = 'http://placekitten.com/400/300';
+newImg.style.border = '1px solid black';
+document.body.appendChild(newImg);
+					</code></pre>
+				</section>
+				<section>
+					<p>Remember your adding to the DOM tree. Adding nodes as children on the tree.</p>
+					<pre><code class="javascript">
+var newParagraph = document.createElement('p');
+var paragraphText = document.createTextNode('Squee!');
+newParagraph.appendChild(paragraphText);
+document.body.appendChild(newParagraph);
+					</code></pre>
+				</section>
+			</section>
+			<!-- end: 13 -->
+
+			<!-- break -->
+			<section>
+				<p class="individually">Questions?</p>
+			</section>
+			<!-- end break -->
+
+			<!-- Exercise 2: 14 -->
+			<section>
+				<section>
+					<h3>Exercise time!</h3>
+					<a href="http://www.teaching-materials.org/javascript/exercises/dom.html">http://www.teaching-materials.org/javascript/exercises/dom.html</a>
+				</section>
+			</section>
+			<!-- end: 14 -->
+
+			<!-- Events: 15 -->
+			<section>
+				<section>
+					<h3>Events</h3>
+					<p>Allow event-driven programming languages like JavaScript to register various events to fire.</p>
+					<p>Handlers or listeners can be set to handle these events.</p>
+				</section>
+				<section>
+					<h3>Why do we need events?</h3>
+					<ul>
+						<li class="fragment fade-in">Form validation and processing</li>
+						<li class="fragment fade-in">Interactive slideshows</li>
+						<li class="fragment fade-in">Games</li>
+						<li class="fragment fade-in">Single-page webapps</li>
+						<li class="fragment fade-in">...anything that involves user interaction.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Adding Event Listeners</h3>
+					<pre><code class="javascript">
+domNode.addEventListener(eventType, eventListener, useCapture);
+					</code></pre>
+					<pre><code class="javascript">
+&lt;button id="counter"&gt;0&lt;/button&gt;
+  
+&lt;script&gt;
+var counterButton = document.getElementById('counter');
+function onButtonClick() {
+    counterButton.innerHTML = parseInt(counterButton.innerHTML) + 1;
+}
+counterButton.addEventListener('click', onButtonClick, false);
+&lt;/script&gt;
+					</code></pre>
+				</section>
+			</section>
+			<!-- end: 15 -->
+
+			<!-- More events: 16 -->
+			<section>
+				<section>
+					<h3>Event Types</h3>
+					<p>The browser triggers many events. A short list.</p>
+				</section>
+				<section>
+					<h3>Mouse events</h3>
+					<table>
+						<tr>
+							<td>mousedown</td><td>mouseup</td>
+						</tr>
+						<tr>
+							<td>click</td><td>dblclick</td>
+						</tr>
+						<tr>
+							<td>mousemove</td><td>mouseover</td>
+						</tr>
+						<tr>
+							<td>mousewheel</td><td>mouseout</td>
+						</tr>
+						<tr>
+							<td>contextmenu</td>
+						</tr>
+					</table>
+				</section>
+				<section>
+					<h3>Window events</h3>
+					<table>
+						<tr>
+							<td>scroll</td><td>resize</td>
+						</tr>
+						<tr>
+							<td>load</td><td>unload</td>
+						</tr>
+					</table>
+				</section>
+				<section>
+					<h3>Keyboard events</h3>
+					<table>
+						<tr>
+							<td>keydown</td><td>keypress</td>
+						</tr>
+						<tr>
+							<td>keyup</td>
+						</tr>
+					</table>
+				</section>
+				<section>
+					<h3>Form events</h3>
+					<table>
+						<tr>
+							<td>focus</td><td>blur</td>
+						</tr>
+						<tr>
+							<td>change</td><td>sumbit</td>
+						</tr>
+					</table>
+				</section>
+				<section>
+					<h3>Event Properties</h3>
+					<p>When your event listener is called, the browser passes an event object with information about the event into the function.</p>
+					<p>Each event type has different properties.</p>
+				</section>
+				<section>
+					<p>For example, MouseEvent reports the clicked coordinates.</p>
+					<pre><code class="javascript">
+  &lt;img id="kitten" src="http://placekitten.com/200/300"&gt;
+  &lt;div id="info"&gt;&lt;/div&gt;
+  &lt;script&gt;
+var kittenImg = document.getElementById('kitten');
+var infoDiv   = document.getElementById('info');
+function onClick(event) {
+    info.innerHTML = 'You clicked on ' + event.clientX + ' , ' + event.clientY;
+}
+kittenImg.addEventListener('click', onClick, false);
+  &lt;/script&gt;
+					</code></pre>
+				</section>
+			</section>
+			<!-- end: 16 -->
+
+			<!-- break -->
+			<section>
+				<p class="individually">Questions?</p>
+			</section>
+			<!-- end break -->
+
+			<!-- More to do with events: 17 -->
+			<section>
+				<section>
+					<h3>Processing Form Input</h3>
+					<p>A common use of events is to process form input.</p>
+					<p>You can do this either by responding to button click events or input click/change events.</p>
+				</section>
+				<section>
+					<pre><code class="javascript">
+  &lt;input id="name" type="text"&gt;
+  &lt;button id="button"&gt;Say My Name&lt;/button&gt;
+  
+  &lt;script&gt;
+var button = document.getElementById('button');
+function onClick(event) {
+    var name = document.getElementById("name").value;
+    alert("Hi, " + name);
+}
+button.addEventListener('click', onClick);
+  &lt;/script&gt;
+					</code></pre>
+				</section>
+				<section>
+					<h3>Waiting for window "load"</h3>
+					<p>Before we mess with an object in the DOM, we should make sure it's there.</p>
+					<p>You can either put the code at bottom of page, or listen to the "load" event.</p>
+				</section>
+				<section>
+					<pre><code class="javascript">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+ &lt;head&gt;
+  &lt;meta charset="utf-8" /&gt;
+  &lt;title&gt;Mouse Events&lt;/title&gt;
+  &lt;script&gt;
+function onLoad() {
+  // Setup the page
+}
+window.addEventListener("load", onLoad);
+  &lt;/script&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+ &lt;/body&gt;
+&lt;/html&gt;
+					</code></pre>
+				</section>
+			</section>
+			<!-- end: 17 -->
+
+			<!-- break -->
+			<section>
+				<p class="individually">Questions?</p>
+			</section>
+			<!-- end break -->
+
+			<!-- Exercise 3: 18 -->
+			<section>
+				<section>
+					<h3>Exercise time!</h3>
+					<a href="http://www.teaching-materials.org/javascript/exercises/events.html">http://www.teaching-materials.org/javascript/exercises/events.html</a>
+				</section>
+			</section>
+			<!-- end: 18 -->
+
+
+			<!-- Till then:  -->
+			<section>
+				<section>
+					<h3>Where to?</h3>
+				</section>
+				<section>
+					<h3>JS Best Practices</h3>
+					<p>Adopt a set of good, consistent coding conventions.</p>
+					<p>Use a code compression tool like UglifyJS.</p>
+					<p>Use libraries when appropriate, like jQuery or Zepto.</p>
+				</section>
+				<section>
+					<p class="individually">THANK YOU!!</p>
+				</section>
+			</section>
+			<!-- end:  -->
+
+		</div> <!-- end slides -->
+		<footer>
+			<span class='footer-title'>JavaScript Libraries: Intro to jQuery</span>
+			<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+		</footer>
+	</div> <!-- end reveal -->
+	<script src="reveal/lib/js/head.min.js"></script>
+	<script src="reveal/js/reveal.min.js"></script>
+
+	<script>
+		// Full list of configuration options available here:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+
+			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
+
+			// // Optional libraries used to extend on reveal.js
+			// dependencies: [
+			// 	{ src: 'reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+			// 	{ src: 'reveal/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			// 	{ src: 'reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			// 	{ src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+			// 	{ src: 'reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+			// 	{ src: 'reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+			// ]
+		});
+
+	</script>
+</body>
+</html>
