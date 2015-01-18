@@ -757,8 +757,8 @@ for (var i = 0; i &lt; rainbowColors.length; i++) {
 			<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
 		</footer>
 	</div> <!-- end reveal -->
-	<script src="../reveal.js/lib/js/head.min.js"></script>
-	<script src="../reveal.js/js/reveal.min.js"></script>
+	<script src="../reveal.js/lib/js/head.js"></script>
+	<script src="../reveal.js/js/reveal.js"></script>
 
 	<script>
 		// Full list of configuration options available here:
@@ -772,14 +772,14 @@ for (var i = 0; i &lt; rainbowColors.length; i++) {
 			transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
 
 			// Optional libraries used to extend on reveal.js
-			dependencies: [
-				{ src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-				{ src: '../reveal.js/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-				{ src: '../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-				{ src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-				{ src: '../reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-				{ src: '../reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-			]
+			// dependencies: [
+			// 	{ src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+			// 	{ src: '../reveal.js/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			// 	{ src: '../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			// 	{ src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+			// 	{ src: '../reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+			// 	{ src: '../reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+			// ]
 		});
 
 	</script>
