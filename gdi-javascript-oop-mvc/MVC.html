@@ -10,20 +10,20 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-	<link rel="icon" href="images/favicon.ico">
+	<link rel="icon" href="../images/favicon.ico">
 
-	<link rel="stylesheet" href="../reveal/css/reveal.css">
-	<link rel="stylesheet" href="../reveal/css/theme/solarized.css" id="theme">
+	<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../reveal.js/css/theme/solarized.css" id="theme">
 
 	<link rel="stylesheet" href="../css/gdi.css">
 
 	<!-- For syntax highlighting -->
-	<link rel="stylesheet" href="../reveal/plugin/highlight/styles/zenburn.css">
+	<link rel="stylesheet" href="../reveal.js/plugin/highlight/styles/zenburn.css">
 	<!-- For the slides -->
 	<link rel="stylesheet" href="../css/slides.css">
 	<!-- If use the PDF print sheet so students can print slides-->
 
-	<link rel="stylesheet" href="../reveal/css/print/pdf.css" type="text/css" media="print">
+	<link rel="stylesheet" href="../reveal.js/css/print/pdf.css" type="text/css" media="print">
 
 	<!--[if lt IE 9]>
 	<script src="lib/js/html5shiv.js"></script>
@@ -434,8 +434,8 @@ var BookShelfView = function(books){
 			<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
 		</footer>
 	</div> <!-- end reveal -->
-	<script src="../reveal/lib/js/head.min.js"></script>
-	<script src="../reveal/js/reveal.min.js"></script>
+	<script src="../reveal.js/lib/js/head.min.js"></script>
+	<script src="../reveal.js/js/reveal.min.js"></script>
 
 	<script>
 		// Full list of configuration options available here:
@@ -450,12 +450,12 @@ var BookShelfView = function(books){
 
 			// Optional libraries used to extend on reveal.js
 			dependencies: [
-				{ src: '../reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-				{ src: '../reveal/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-				{ src: '../reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-				{ src: '../reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-				{ src: '../reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-				{ src: '../reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				{ src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../reveal.js/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+				{ src: '../reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
 			]
 		});
 
