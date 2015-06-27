@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>JS Object-Oriented Programming</title>
+
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<link rel="icon" href="images/favicon.ico">
+
+	<link rel="stylesheet" href="../reveal/css/reveal.css">
+	<link rel="stylesheet" href="../reveal/css/theme/solarized.css" id="theme">
+
+	<link rel="stylesheet" href="../css/gdi.css">
+
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="..reveal/plugin/highlight/styles/zenburn.css">
+	<!-- For the slides -->
+	<link rel="stylesheet" href="../css/slides.css">
+	<!-- If use the PDF print sheet so students can print slides-->
+
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+			<!-- Opening slide -->
+			<section>
+				<img src="../images/gdi_logo_badge.png" alt="" />
+				<h3>JavaScript</h3>
+				<h4>Object-Oriented Programming</h4>
+				<h5 class='title-page'>Presented by Patricia Cifra</h5>
+			</section>
+
+			<!-- Welcome-->
+			<section>
+				<section>
+					<h3>Welcome!</h3>
+						<p>Girl Develop It is here to provide affordable and accessible programs to learn software through mentorship and hands-on instruction.</p>
+				</section>
+				<section>
+					<h3>Some "Rules"</h3>
+					<ul>
+						<li>We are here for you!</li>
+						<li>Every question is important</li>
+						<li>Help each other</li>
+						<li>Be Respectful</li>
+						<li>Have fun!</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Introductions</h3>
+					<ul>
+						<li>Who are you?</li>
+						<li>What spurred you into learning about development?</li>
+						<li>What do you hope to get out of the class?</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Object-oriented programming</h3>
+
+					<img src="../images/OOP/bookoo.png">
+					<br><br>
+					<ul>
+					<li>Objects have properties and methods</li>
+					<li>There can be many "instances" of objects</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Object-oriented programming</h3>
+					  <img src="../images/OOP/bookoo_extended.png">
+						<br><br>
+						<ul>
+						<li>Objects can inherit properties/methods of other objects</li>
+						<li>Objects can implement parent methods in different ways</li>
+						</ul>
+				</section>
+				<section>
+					<img src="../images/OOP/book_paperback_venn.png">
+				</section>
+			</section>
+			<!--Prototype-based programming -->
+			<section>
+				<section>
+					<h3> Prototype-based programming </h3>
+A style of object-oriented programming in which behaviour reuse (known as inheritance) is performed via a process of cloning existing objects that serve as prototypes. 
+				</section>
+				<section>
+					<h3> Prototype-based programming </h3>
+						<img src="../images/OOP/o-o-prototype-based-programming.jpg">
+				</section>
+			</section>
+
+			<!-- Object object -->
+			<section>
+				<section>
+					<h3> The Object </h3>
+				</section>
+				<section>
+					<h3> Simple way to create new object</h3>
+ <pre><code class="javascript">
+var cat = {};
+cat.speak = function(line) {
+ console.log("the cat says " + line);
+}
+cat.speak("give me treats");
+</code></pre>
+				</section>
+				<section>
+					<h3> this </h3>
+ <pre><code class="javascript">
+function speak(line) {
+ console.log("the "+ this.adjective + " cat says " + line);
+}
+var blueCat = {adjective: "blue", speak: speak};
+var blackCat = {adjective: "black", speak: speak};
+
+blueCat.speak("why am I blue? this is weird");
+blackCat.speak("i love Halloween");
+</code></pre>
+				</section>
+<!-- 				<section>
+					Excercise
+					<ul>
+						1. Create an 
+					</ul>
+				</section> -->
+<!-- 				<section>
+					<h3> object.method() </h3>
+				</section>
+				<section>
+					<h3> Example</h3>
+					Simple example of objects and methods
+				</section> -->
+				<section>
+					<h3>Using apply() and call()</h3>
+					 <pre><code class="javascript">
+speak.apply(blueCat,["boom"]);
+speak.call(blueCat,"pow");
+					 </code></pre>
+				</section>
+				<section>
+					<h3>Try it yourself</h3>
+					<ul>
+						<li>Create a method </li>
+						<li>Create two objects that use the method that share a property with different values </li>
+						<li>Use call() to invoke the method on the two objects. 
+					</ul>
+				</section>
+				<section>
+					<h3> New keyword </h3>
+					<pre><code class="javascript">
+function Cat(adj) {
+ this.adjective = adj;
+ this.speak = function(line) {
+  console.log("The " + this.adjective + " cat says " + line);
+ }
+}
+var zombieCat = new Cat("zombie");
+zombieCat.speak("mmmM brains..");
+					</code></pre>
+				</section>
+				<section>
+					<h3> Why use new? </h3>
+					<pre><code class="javascript">
+function createCat(adjective) {
+ return {
+  adjective: adjective,
+  speak: function(line) {
+   console.log("the " + this.adjective + " cat says " + line);
+  }
+ }
+}
+var hipsterCat = createCat("hipster");
+					</code></pre>
+				</section>
+				<section>
+					<h3> Check out those constructors  </h3>
+					<pre><code class="javascript">
+console.log(zombieCat.constructor);
+console.log(hipsterCat.constructor);
+					</code></pre>
+				</section>
+				<section>
+					<h3>Constructor Property</h3>
+<pre><code class="javascript">
+var someObject = {};
+console.log(someObject);
+console.log(someObject.toString);
+console.log(Cat.prototype);
+console.log(Cat.prototype.constructor);
+console.log(zombieCat.toString == someObject.toString);
+</code></pre>
+				</section>
+			</section>
+
+			<!-- Prototypes -->
+			<section>
+				<section>
+					<h3>Prototypes</h3>
+				</section>
+				<section>
+					<h3> Inheritance and the prototype chain </h3>
+					<img src="../images/OOP/prototypal-inheritance.png">
+				</section>
+				<section>
+					<h3> Class vs. Prototype </h3>
+					<img src="../images/OOP/protoCompare.jpg">
+				</section>
+<!-- 				<section>
+					<ul>
+						<li>Every object is based on a prototype</li>
+						<li>{} is equvalent to Object. </li>
+						<li> most basic prototype is assocated wiht the object constructor.
+				    </ul>
+				</section>
+				<section>
+					<h3> toString()</h3>
+					example
+				</section> -->
+				<section>
+					<h3>Sharing is one way</h3>
+<pre><code class="javascript">
+Cat.prototype.fur = "soft";
+console.log(zombieCat.fur);
+zombieCat.fur = "bloody";
+console.log(zombieCat.fur);
+console.log(Cat.prototype.fur);
+</code></pre>
+				</section>
+				<section>
+					<h3> Adding new properties/methods </h3>
+<pre><code class="javascript">
+Cat.prototype.eat = function() {
+ console.log("The " + this.adjective + " cat is eating");
+}
+zombieCat.eat();
+</code></pre>
+				</section>
+			</section>
+
+			<!-- Object Oriented Programming -->
+			<section>
+				<section>
+					<h3>Putting it all together: Defining Objects in JavaScript</h3>
+
+ <pre><code class="javascript">
+// The constructor function
+function Book(title, author, numPages){
+// The properties of this object
+this.title = title;
+this.author = author;
+this.numPages = numPages;
+this.currentPage = 0;
+}
+// A method on the object
+Book.prototype.read = function(){
+ this.currentPage = this.numPages;
+ console.log("You read " + this.numPages + " pages!");
+}
+// Instantiating a new object
+var book = new Book("Robot Dreams", "Isaac Asimov", 320);
+book.read();
+</code></pre>
+
+				</section>
+				<section>
+					  <h3><a href="http://www.teaching-materials.org/jsoo/exercise_oo.html">Exercise Time!</a></h3>
+				</section>
+			</section>
+
+			<!-- Extending Objects in JavaScript -->
+			<section>
+				<section>
+					<h3>Extending Objects in JavaScript</h3>
+  <pre><code class="javascript">
+ // The constructor function
+function PaperBack(title, author, numPages, cover){
+ Book.call(this, title, author, numPages);
+ this.cover = cover;
+}
+// Extending the Book object
+PaperBack.prototype = Object.create(Book.prototype);
+// A new method on this object
+PaperBack.prototype.burn = function () {
+  console.log("Omg, you burnt all " + this.numPages + "pages");
+  this.numPages = 0;
+}
+// Instantiating a new object
+var paperback =  new PaperBack("1984", "George Orwell", 250, "cover.jpg");
+paperback.read();
+paperback.burn();
+ </code></pre>
+				</section>
+				<section>
+					<h3><a href="http://www.teaching-materials.org/jsoo/exercise_extend.html">Exercise Time!</a></h3>
+				</section>
+			</section>
+
+
+			<!-- The end -->
+			<section>
+				<h3> That's all folks! </h3>
+			</section>	
+		</section>
+		</div> <!-- end slides -->
+		<footer>
+			<span class='footer-title'>Intro to JavaScript</span>
+			<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+		</footer>
+	</div> <!-- end reveal -->
+	<script src="../reveal/lib/js/head.min.js"></script>
+	<script src="../reveal/js/reveal.min.js"></script>
+
+	<script>
+		// Full list of configuration options available here:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+
+			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
+
+			// Optional libraries used to extend on reveal.js
+			dependencies: [
+				{ src: '../reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../reveal/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+				{ src: '../reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+			]
+		});
+
+	</script>
+</body>
+</html>

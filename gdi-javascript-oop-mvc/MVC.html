@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>JS MVC</title>
+
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<link rel="icon" href="images/favicon.ico">
+
+	<link rel="stylesheet" href="../reveal/css/reveal.css">
+	<link rel="stylesheet" href="../reveal/css/theme/solarized.css" id="theme">
+
+	<link rel="stylesheet" href="../css/gdi.css">
+
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="../reveal/plugin/highlight/styles/zenburn.css">
+	<!-- For the slides -->
+	<link rel="stylesheet" href="../css/slides.css">
+	<!-- If use the PDF print sheet so students can print slides-->
+
+	<link rel="stylesheet" href="../reveal/css/print/pdf.css" type="text/css" media="print">
+
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+			<!-- Opening slide -->
+			<section>
+				<img src="../images/gdi_logo_badge.png" alt="" />
+				<h3>JavaScript</h3>
+				<h2>MVC</h2>
+				<h5 class='title-page'>Presented by Patricia Cifra</h5>
+			</section>
+
+			<!-- Welcome-->
+			<section>
+				<section>
+					<h3>Welcome!</h3>
+						<p>Girl Develop It is here to provide affordable and accessible programs to learn software through mentorship and hands-on instruction.</p>
+				</section>
+				<section>
+					<h3>Some "Rules"</h3>
+					<ul>
+						<li>We are here for you!</li>
+						<li>Every question is important</li>
+						<li>Help each other</li>
+						<li>Be Respectful</li>
+						<li>Have fun!</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Introductions</h3>
+					<ul>
+						<li>Who are you?</li>
+						<li>What spurred you into learning about development?</li>
+						<li>What do you hope to get out of the class?</li>
+					</ul>
+				</section>
+			</section>
+
+
+			<!--JavaScript and Websites a brief history-->
+			<section>
+				<section>
+					<h3>JavaScript and Websites</h3>
+					<h4>A brief history</h4>
+				</section>
+				<section>
+					<h3>Web 2.0: JS for AJAX</h3>
+					<img src="../images/MVC/web2point0.png">
+				</section>
+				<section>
+					<h3>Web Today: JS for Everything</h3>
+					<img src="../images/MVC/web3point0.png">
+				</section>
+				<section>
+					<h3>Big JS Web Apps</h3>
+					<img src="../images/MVC/webapps.png">
+				</section>
+			</section>
+
+			<!-- What does JS Do? -->
+			<section>
+				<section>
+					<h3>What does the JS do?</h3>
+					<ul>
+						<li>Fetches data (via AJAX)</li>
+						<li>Processes and calculates data</li>
+						<li>Creates DOM (like w/jQuery)</li>
+						<li>Reacts to events</li>
+					</ul>
+				</section>
+				<section>
+					<h3>...that's a lot of JS.</h3>
+
+					<br><br>
+					<h3>
+					Coursera: <strong>28,848 lines of JS code.</strong>.
+					</h3>
+				</section>
+				<section>
+					<h3>Let's make it manageable</h3>
+					<br><br>
+					<ul>
+					 <li class="fragment">Split into multiple files.</li>
+					 <li class="fragment">Modularize the code into re-usable chunks.</li>
+					 <li class="fragment">Use object-oriented concepts to organize code.</li>
+					 <li class="fragment">Separate the code into "model" vs. "view"</li>
+					</ul>
+				</section>
+<!-- 				<section>
+					Excercise
+				</section> -->
+			</section>
+
+			<!-- Model vs. View -->
+			<section>
+				<section>
+					<img src="../images/MVC/mvc-diagram.jpg">
+				</section>
+				<section>
+					<img src="../images/MVC/mvc-detail.jpg">
+				</section>
+				<section>
+					<h3>View</h3>
+					View is what's presented to the users and how users interact with the app. The view is made with HTML, CSS, JavaScript and often templates. 
+				</section>
+				<section>
+					<h3>Controller</h3>
+					The controller is the decision maker and the glue between the model and view. The controller updates the view when the model changes. It also adds event listeners to the view and updates the model when the user manipulates the view.
+				</section>
+				<section>
+					<h3>Model</h3>
+					Model is where the application’s data objects are stored. The model doesn’t know anything about views and controllers. When a model changes, typically it will notify its observers that a change has occurred.
+				</section>
+				<section>
+					<h3>Model vs. View</h3>
+					<div style="position:relative;">
+						<svg height="400" width="800" xmlns="http://www.w3.org/2000/svg">
+						<circle cx="200" cy="200" r="200" fill="yellow" style="opacity:.5"></circle>
+						<circle cx="600" cy="200" r="200" fill="cyan" style="opacity:.5"></circle>
+						</svg>
+
+						<div style="position:absolute;top: 70px; left: 145px; text-align:center;">
+						<h3>"Model"</h3>
+						<h4>(Data)</h4>
+						<p>Fetch data</p>
+						<p>Process data</p>
+						</div>
+
+						<div style="position:absolute;top: 70px; left: 480px; text-align:center;">
+						<h3>"View"</h3>
+						<h4>(Presentation)</h4>
+						<p>Create DOM</p>
+						<p>Handle DOM Events</p>
+						</div>
+					</div>
+				</section>
+				<!-- The Book Model -->
+				<section>
+					<h3>The Book Model</h3>
+
+					<p>Simple version: stores properties passed in</p>
+					<pre><code class="javascript">
+var BookModel = function(bookJSON) {
+ this</span>.title = bookJSON.title;
+ this</span>.author = bookJSON.author;
+ this</span>.asin = bookJSON.asin;
+ this</span>.thumbnail = bookJSON.thumbnail;
+ this</span>.rating = bookJSON.rating;
+ this</span>.review = bookJSON.review;
+};
+					</code></pre>
+
+					<pre><code class="javascript">
+var book = new BookModel({
+ title: "1984",
+ author: "George Orwell",
+ asin: "0451524934",
+ thumbnail: "http://images.amazon.com/images/P/0451524934.01.ZTZZZZZZ.jpg",
+ rating: 4
+});
+					</code></pre>
+				</section>
+				<!-- Better Set Defaults for properties -->					
+				<section>
+					<h3>The Book Model</h3>
+					<p>Better: Sets defaults for properties</p>
+					<pre><code class="javascript">
+var BookModel = function(bookJSON){
+ this.title = bookJSON.title || 'Untitled';
+ this.author = bookJSON.author || 'Unknown author';
+ this.asin = bookJSON.asin;
+ this.thumbnail = bookJSON.thumbnail;
+ this.rating = bookJSON.rating;
+ this.review = bookJSON.review || '';
+};
+					</code></pre>
+
+					<pre><code class="javascript">
+var book = new BookModel({
+ asin: "0451524934",
+ thumbnail: "http://images.amazon.com/images/P/0451524934.01.ZTZZZZZZ.jpg",
+ rating: 4
+});
+					</code></pre>
+				</section>
+				<!-- Even Better: computer properties -->
+				<section>
+					  <h3>The Book Model</h3>
+					  <p>Even better: computes properties</p>
+					  <pre><code class="javascript">
+var BookModel = function(bookJSON){ 
+ this.title = bookJSON.title || 'Untitled';
+ this.author = bookJSON.author || 'Unknown author';
+ this.asin = bookJSON.asin;
+ this.thumbnail = bookJSON.thumbnail;
+ this.rating = bookJSON.rating;
+ this.review = bookJSON.review || '';
+ this.url = 'http://www.amazon.com/gp/product/'
+  + this.asin + '?tag=amazonsimilar-20';
+};
+					</code></pre>
+					<pre><code class="javascript">
+var book = new BookModel({
+ title: "1984",
+ author: "George Orwell",
+ asin: "0451524934",
+ thumbnail: "http://images.amazon.com/images/P/0451524934.01.ZTZZZZZZ.jpg",
+ rating: 4
+});
+					</code></pre>
+				</section>
+				<!-- Create an array of models and provide sorts -->
+				<section>
+					<h3>The BookCollection</h3>
+					<p>Creates an array of Models and provides sorts.</p>
+					<pre><code class="javascript">
+var BookCollection = function(booksJSON){
+ this.items = [];
+ for(var i = 0; i &lt; booksJSON.length; i++) {
+  this.items.push(new BookModel(booksJSON[i]));
+ }
+};
+BookCollection.prototype.sort = function() {
+ this.items.sort(function(bookA, bookB) {
+  return (bookA.rating - bookB.rating);
+ });
+};
+					</code></pre>
+					<pre><code class="javascript">
+var booksJSON = [{
+ title: "1984",
+ author: "George Orwell",
+ asin: "0451524934",
+ thumbnail: "http://images.amazon.com/images/P/0451524934.01.ZTZZZZZZ.jpg",
+ rating: 4
+}]
+var books = new BookCollection(booksJSON);
+					</code></pre>
+				</section>
+				<section>
+					  <h3><a href="http://www.teaching-materials.org/jsmvc/exercise_model.html">Exercise Time!</a></h3>
+				</section>
+				<section>
+					<h3>Hint..</h3>
+					<pre><code class="javascript">
+var VideoModel = function(videoJSON) {
+ this.youtubeId = videoJSON.youtubeId;
+ // Take it from here..
+};
+var VideoCollection = function(videosJSON) {
+ this.items = [];
+ for (var i = 0; i < videosJSON.length; i++) {
+  // do something here?
+ }
+};
+		    	</code></pre>
+				</section>
+				<section>
+					<h3>Solution</h3>
+					<pre><code style="max-height: 500px; width: 950px" class="javascript">
+var VideoModel = function(videoJSON) {
+ this.youtubeId = videoJSON.youtubeId;
+ this.title = videoJSON.title || 'Untitled';
+ this.author = videoJSON.author || 'No author';
+ this.thumbURL = 'http://i3.ytimg.com/vi/' + this.youtubeId + '/default.jpg';
+ this.embedURL = 'http://www.youtube.com/embed/' + this.youtubeId;
+};
+var VideoCollection = function(videosJSON) {
+ this.items = [];
+ for (var i = 0; i < videosJSON.length; i++) {
+  this.items.push(new VideoModel(videosJSON[i]));
+ }
+};
+VideoCollection.prototype.sort = function() {
+ this.items.sort(function(videoA, videoB){
+  return videoA.title.localeCompare(videoB.title);
+ });
+};
+		     </code></pre>
+				</section>
+				<section>
+					<h3>Solution Part 2</h3>
+					<pre><code class="javascript">
+$(document).ready(function() {
+ var videos = new VideoCollection(videosJSON);
+ videos.sort();
+ for (var i = 0; i < videos.items.length; i++) {
+   addVideoToList(videos.items[i]);
+ }
+});
+		</code></pre>
+				</section>
+			</section>
+
+			<!-- Bookshelf view -->
+			<section>
+				<section>
+					<h3>A BookShelf View</h3>
+					<pre><code style="width: 1150px; max-height: 600px" class="javascript">
+var BookShelfView = function(books) {
+ var shelfDiv = $('&lt;div&gt;');
+ for(var i = 0; i &lt; books.items.length; i++) {
+  var book = books.items[i];
+  // Create a div with a linked image inside it, 
+  // and add that to the shelf div
+  var bookDiv = $('&lt;div class="book"&gt;');
+  var bookLink = $('&lt;a&gt;');
+  bookLink.attr('href', book.url);
+  var bookCover = $('&lt;img&gt;');
+  bookCover.attr('src', book.thumbnail);
+  bookLink.append(bookCover);
+  bookDiv.append(bookLink);
+  shelfDiv.append(bookDiv);
+
+  // On mouseover, pop up the review
+  bookDiv.bind('mouseover', function(e) {
+   var reviewDiv = $('&lt;div class="book-review"&gt;');
+   reviewDiv.html('&lt;strong&gt;' + book.rating + ' stars: &lt;/strong&gt;' + (book.review || ' No review.'));
+   reviewDiv.css({'position': 'absolute', 'top':  e.pageY, 'left': e.pageX});
+   $('body').append(reviewDiv);
+	});
+  bookDiv.bind('mouseout', function() {
+   $('.book-review').remove();
+  });
+ }
+return shelfDiv;
+};
+					</code></pre>
+  <!-- Proof of a good view: it can be used twice.
+   Your view should never know about the DOM of your webpage. -->
+				</section>
+				<!-- Smaller/Nested views -->
+				<section>
+					<h3>Smaller/Nested Views</h3>
+  					<pre><code style="max-height: 600px" class="javascript">
+var BookView = function(book){
+ bookDiv = $('&lt;div class="book"&gt;');
+ var bookLink = $('&lt;a&gt;');
+ bookLink.attr('href', book.url);
+ var bookCover = $('&lt;img&gt;');
+ bookCover.attr('src', book.thumbnail);
+ bookLink.append(bookCover);
+ bookDiv.append(bookLink);
+ // Attach event listeners
+ return bookDiv;
+};
+var BookShelfView = function(books){
+ var shelfDiv = $('&lt;div&gt;');
+ for(var i = 0; i &lt; books.items.length; i++) {
+  var book = books.items[i];
+  shelfDiv.append(new BookView(book));
+ }
+ return shelfDiv;
+};
+					</code></pre>
+				</section>
+				<!-- Bookshelf App -->
+				<section>
+					<h3>BookShelf App: <br>MVC Version</h3>
+					<p>
+						<a href="http://www.teaching-materials.org/jsmvc/demo/bookshelf_mvc.html">Try it!</a>
+					</p>
+					<p>
+						<img src="../images/MVC/bookshelf_screenshot.png">
+					</p>
+				</section>
+				<section>
+					  <h3><a href="http://www.teaching-materials.org/jsmvc/exercise_view.html">Exercise Time!</a></h3>
+				</section>
+				<section>
+					  <h3>MV* Frameworks</h3>
+					  <img src="../images/MVC/j6-bm8vdetj2.png">
+  <!--- Many JS developers have done this, so they’ve made generic libraries to make it easier. -->
+				</section>
+				<section>
+					  <h3>MV* Frameworks</h3>
+
+						<ul>
+							<li>MVC: Model View Controller (e.g. <a href="http://emberjs.com/">EmberJS</a>, <a href="http://angularjs.org/">AngularJS</a>)</li>
+							<li>MVP: Model View Presenter (e.g. <a href="http://backbonejs.org/">BackboneJS</a>)</li>
+							<li>MVVM: Model View ViewModel (e.g. <a href="http://knockoutjs.com/">KnockoutJS</a>)</li>
+							<li>MV*: Model View Something!</li>
+						</ul>
+						<br><br>
+						<p><a href="http://coding.smashingmagazine.com/2012/07/27/journey-through-the-javascript-mvc-jungle/">
+							Journey through the JS MVC Jungle</a>, 
+							<a href="http://addyosmani.github.com/todomvc/">TodoMVC</a>
+						</p>
+				</section>
+			</section>
+
+			<!-- The end -->
+			<section>
+				<h3> That's all folks! </h3>
+			</section>	
+		</section>
+		</div> <!-- end slides -->
+		<footer>
+			<span class='footer-title'>MVC with JavaScriptt</span>
+			<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+		</footer>
+	</div> <!-- end reveal -->
+	<script src="../reveal/lib/js/head.min.js"></script>
+	<script src="../reveal/js/reveal.min.js"></script>
+
+	<script>
+		// Full list of configuration options available here:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+
+			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
+
+			// Optional libraries used to extend on reveal.js
+			dependencies: [
+				{ src: '../reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../reveal/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+				{ src: '../reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+			]
+		});
+
+	</script>
+</body>
+</html>

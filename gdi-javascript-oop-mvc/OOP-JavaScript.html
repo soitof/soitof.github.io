@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>JS Object-Oriented Programming</title>
+
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<link rel="icon" href="images/favicon.ico">
+
+	<link rel="stylesheet" href="../reveal/css/reveal.css">
+	<link rel="stylesheet" href="../reveal/css/theme/solarized.css" id="theme">
+
+	<link rel="stylesheet" href="../css/gdi.css">
+
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="../reveal/plugin/highlight/styles/zenburn.css">
+	<!-- For the slides -->
+	<link rel="stylesheet" href="../css/slides.css">
+	<!-- If use the PDF print sheet so students can print slides-->
+
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+			<!-- Opening slide -->
+			<section>
+				<img src="../images/gdi_logo_badge.png" alt="" />
+				<h3>JavaScript</h3>
+				<h4>Object-Oriented Programming</h4>
+				<h5 class='title-page'>Presented by Patricia Cifra</h5>
+			</section>
+
+			<!-- Welcome-->
+			<section>
+				<section>
+					<h3>Welcome!</h3>
+						<p>Girl Develop It is here to provide affordable and accessible programs to learn software through mentorship and hands-on instruction.</p>
+				</section>
+				<section>
+					<h3>Some "Rules"</h3>
+					<ul>
+						<li>We are here for you!</li>
+						<li>Every question is important</li>
+						<li>Help each other</li>
+						<li>Be Respectful</li>
+						<li>Have fun!</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Introductions</h3>
+					<ul>
+						<li>Who are you?</li>
+						<li>What spurred you into learning about development?</li>
+						<li>What do you hope to get out of the class?</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Object-oriented programming</h3>
+
+					<img src="../images/OOP/bookoo.png">
+					<br><br>
+					<ul>
+					<li>Objects have properties and methods</li>
+					<li>There can be many "instances" of objects</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Object-oriented programming</h3>
+					  <img src="../images/OOP/bookoo_extended.png">
+						<br><br>
+						<ul>
+						<li>Objects can inherit properties/methods of other objects</li>
+						<li>Objects can implement parent methods in different ways</li>
+						</ul>
+				</section>
+				<section>
+					<aside class='notes'>
+						The user interface, in the industrial design field of human–machine interaction, is the space where interaction between humans and machines occurs.<br>
+						Web-based user interfaces or web user interfaces (WUI) that accept input and provide output by generating web pages JavaScript or similar technologies to provide real-time control in a separate program, eliminating the need to refresh a traditional HTML based web browser.
+					</aside>
+					<img src="../images/OOP/book_paperback_venn.png">
+				</section>
+			</section>
+			<!--Prototype-based programming -->
+			<section>
+				<section>
+					<h3> Prototype-based programming </h3>
+A style of object-oriented programming in which behaviour reuse (known as inheritance) is performed via a process of cloning existing objects that serve as prototypes. 
+				</section>
+				<section>
+					<h3> Prototype-based programming </h3>
+						<img src="../images/OOP/o-o-prototype-based-programming.jpg">
+				</section>
+			</section>
+
+			<!-- Object object -->
+			<section>
+				<section>
+					<h3> The Object </h3>
+				</section>
+				<section>
+					<h3> Simple way to create new object</h3>
+ <pre><code class="javascript">
+var cat = {};
+cat.speak = function(line) {
+ console.log("the cat says " + line);
+}
+cat.speak("give me treats");
+</code></pre>
+				</section>
+				<section>
+					<aside class="notes">
+						In most cases, the method will need to know who it should act on. For example, if there are different cat, the speak method must indicate which cat is speaking. For this purpose, there is a special variable called this, which is always present when a function is called, and which points at the relevant object when the function is called as a method. A function is called as a method when it is looked up as a property, and immediately called, as in object.method().
+					</aside>
+					<h3> this </h3>
+ <pre><code class="javascript">
+function speak(line) {
+ console.log("the "+ this.adjective + " cat says " + line);
+}
+var blueCat = {adjective: "blue", speak: speak};
+var blackCat = {adjective: "black", speak: speak};
+
+blueCat.speak("why am I blue? this is weird");
+blackCat.speak("i love Halloween");
+</code></pre>
+				</section>
+<!-- 				<section>
+					Excercise
+					<ul>
+						1. Create an 
+					</ul>
+				</section> -->
+<!-- 				<section>
+					<h3> object.method() </h3>
+				</section>
+				<section>
+					<h3> Example</h3>
+					Simple example of objects and methods
+				</section> -->
+				<section>
+					<aside class="notes">
+						This argument can be used to specify the object that the function must be applied to. For non-method functions, this is irrelevant, hence the null.
+						Functions also have a call method, which is similar to apply, but you can give the arguments for the function separately instead of as an array:
+					</aside>
+					<h3>Using apply() and call()</h3>
+					 <pre><code class="javascript">
+speak.apply(blueCat,["boom"]);
+speak.call(blueCat,"pow");
+					 </code></pre>
+				</section>
+				<section>
+					<h3>Try it yourself</h3>
+					<ul>
+						<li>Create a method </li>
+						<li>Create two objects that use the method that share a property with different values </li>
+						<li>Use call() to invoke the method on the two objects. 
+					</ul>
+				</section>
+				<section>
+					<aside class="notes">
+						The new keyword provides a convenient way of creating new objects. When a function is called with the word new in front of it, its this variable will point at a new object, which it will automatically return (unless it explicitly returns something else). Functions used to create new objects like this are called constructors. Here is a constructor for cats:
+					</aside>
+					<h3> New keyword </h3>
+					<pre><code class="javascript">
+function Cat(adj) {
+ this.adjective = adj;
+ this.speak = function(line) {
+  console.log("The " + this.adjective + " cat says " + line);
+ }
+}
+var zombieCat = new Cat("zombie");
+zombieCat.speak("mmmM brains..");
+					</code></pre>
+				</section>
+				<section>
+					<h3> Why use new? </h3>
+					<aside>Why cant' we just do this</aside>
+					<pre><code class="javascript">
+function createCat(adjective) {
+ return {
+  adjective: adjective,
+  speak: function(line) {
+   console.log("the " + this.adjective + " cat says " + line);
+  }
+ }
+}
+var hipsterCat = createCat("hipster");
+					</code></pre>
+				</section>
+				<section>
+					<aside class="notes">
+						But that is not entirely the same. new does a few things behind the scenes. For one thing, our zombieCat has a property called constructor, which points at the Cat function that created it. hipster also has such a property, but it points at the Object function.
+					</aside>
+					<h3> Check out those constructors  </h3>
+					<pre><code class="javascript">
+console.log(zombieCat.constructor);
+console.log(hipsterCat.constructor);
+					</code></pre>
+				</section>
+				<section>
+					<aside class="notes">
+						Where did the constructor property come from? It is part of the prototype of a cat. Prototypes are a powerful, if somewhat confusing, part of the way JavaScript objects work. Every object is based on a prototype, which gives it a set of inherent properties. The simple objects we have used so far are based on the most basic prototype, which is associated with the Object constructor. In fact, typing {} is equivalent to typing new Object().
+					</aside>
+					<h3>Constructor Property</h3>
+<pre><code class="javascript">
+var someObject = {};
+console.log(someObject);
+console.log(someObject.toString);
+console.log(Cat.prototype);
+console.log(Cat.prototype.constructor);
+console.log(zombieCat.toString == someObject.toString);
+</code></pre>
+				</section>
+			</section>
+
+			<!-- Prototypes -->
+			<section>
+				<section>
+					<h3>Prototypes</h3>
+				</section>
+				<section>
+					<aside class="notes"> JavaScript objects are dynamic "bags" of properties (referred to as own properties) and each one has a link to a prototype object. Here is what happens when trying to access a property</aside>
+					<h3> Inheritance and the prototype chain </h3>
+					<img src="../images/OOP/prototypal-inheritance.png">
+				</section>
+				<section>
+					<aside class="notes"> JavaScript objects are dynamic "bags" of properties (referred to as own properties) and each one has a link to a prototype object. Here is what happens when trying to access a property</aside>
+					<h3> Class vs. Prototype </h3>
+					<img src="../images/OOP/protoCompare.jpg">
+				</section>
+<!-- 				<section>
+					<ul>
+						<li>Every object is based on a prototype</li>
+						<li>{} is equvalent to Object. </li>
+						<li> most basic prototype is assocated wiht the object constructor.
+				    </ul>
+				</section>
+				<section>
+					<h3> toString()</h3>
+					example
+				</section> -->
+				<section>
+					<aside class="notes">
+						Even though objects seem to share the properties of their prototype, this sharing is one-way. The properties of the prototype influence the object based on it, but the properties of this object never change the prototype.
+
+						The precise rules are this: When looking up the value of a property, JavaScript first looks at the properties that the object itself has. If there is a property that has the name we are looking for, that is the value we get. If there is no such property, it continues searching the prototype of the object, and then the prototype of the prototype, and so on. If no property is found, the value undefined is given. On the other hand, when setting the value of a property, JavaScript never goes to the prototype, but always sets the property in the object itself.
+					</aside>
+					<h3>Sharing is one way</h3>
+<pre><code class="javascript">
+Cat.prototype.fur = "soft";
+console.log(zombieCat.fur);
+zombieCat.fur = "bloody";
+console.log(zombieCat.fur);
+console.log(Cat.prototype.fur);
+</code></pre>
+				</section>
+				<section>
+					<aside class="notes">This does mean that the prototype can be used at any time to add new properties and methods to all objects based on it.</aside>
+					<h3> Adding new properties/methods </h3>
+<pre><code class="javascript">
+Cat.prototype.eat = function() {
+ console.log("The " + this.adjective + " cat is eating");
+}
+zombieCat.eat();
+</code></pre>
+				</section>
+			</section>
+
+			<!-- Object Oriented Programming -->
+			<section>
+<!-- 				<section>
+					<h3>Object Oriented Programming</h3>
+						<ul style="font-size:smaller;">
+						<li>Objects have properties and methods</li>
+						<li>There can be many "instances" of objects</li>
+						</ul>
+				</section> -->
+				<section>
+					<h3>Putting it all together: Defining Objects in JavaScript</h3>
+
+ <pre><code class="javascript">
+// The constructor function
+function Book(title, author, numPages){
+// The properties of this object
+this.title = title;
+this.author = author;
+this.numPages = numPages;
+this.currentPage = 0;
+}
+// A method on the object
+Book.prototype.read = function(){
+ this.currentPage = this.numPages;
+ console.log("You read " + this.numPages + " pages!");
+}
+// Instantiating a new object
+var book = new Book("Robot Dreams", "Isaac Asimov", 320);
+book.read();
+</code></pre>
+
+				</section>
+				<section>
+					  <h3><a href="http://www.teaching-materials.org/jsoo/exercise_oo.html">Exercise Time!</a></h3>
+				</section>
+			</section>
+
+			<!-- Extending Objects in JavaScript -->
+			<section>
+				<section>
+					<h3>Extending Objects in JavaScript</h3>
+  <pre><code class="javascript">
+ // The constructor function
+function PaperBack(title, author, numPages, cover){
+ Book.call(this, title, author, numPages);
+ this.cover = cover;
+}
+// Extending the Book object
+PaperBack.prototype = Object.create(Book.prototype);
+// A new method on this object
+PaperBack.prototype.burn = function () {
+  console.log("Omg, you burnt all " + this.numPages + "pages");
+  this.numPages = 0;
+}
+// Instantiating a new object
+var paperback =  new PaperBack("1984", "George Orwell", 250, "cover.jpg");
+paperback.read();
+paperback.burn();
+ </code></pre>
+				</section>
+				<section>
+					<h3><a href="http://www.teaching-materials.org/jsoo/exercise_extend.html">Exercise Time!</a></h3>
+				</section>
+			</section>
+
+			<!-- Clearer Constructor -->
+			<section>
+				<section>
+					<h3>Clearer Constructor</h3>
+ <pre><code class="javascript">
+function Book(title, author, numPages) {
+ this.title = title;
+ this.author = author;
+ this.numPages = numPages;
+ this.currentPage = 0;
+}
+
+var book = new Book("Robot Dreams", "Isaac Asimov", 320);
+</code></pre>
+    
+  <p>versus:</p>
+  <pre><code class="javascript">
+function Book(config) {
+ this.title = config.title;
+ this.author = config.author;
+ this.numPages = config.numPages;
+ this.currentPage = 0;
+}
+var book = new Book({
+ title: "Robot Dreams",
+ author: "Isaac Asimov",
+ numPages: 320});
+  </code></pre>
+				</section>				
+			<section>
+				<h3>Optional Arguments</h3>
+				<pre><code class="javascript">
+function Book(config) {
+ this.title = config.title;
+ this.author = config.author;
+ this.numPages = config.numPages;
+ this.currentPage = 0;
+}
+var book = new Book({
+ title: "Robot Dreams",
+ author: "Isaac Asimov",
+ numPages: 320
+});
+				</code></pre>
+    
+ 				<p>versus:</p>
+				<pre><code class="javascript">
+function Book(config){ 
+  config = config || {};
+  this.title = config.title || "Untitled";
+  this.author = config.author || "Unknown";
+  this.numPages = config.numPages || 100;
+  this.currentPage = 0;
+}
+
+var book = new Book({
+ title: "Robot Dreams",
+ numPages: 320
+});
+				</code></pre>
+
+				</section>
+				<section>
+ 					<h3><a href="http://www.teaching-materials.org/jsoo/exercise_constructors.html">Exercise Time!</a></h3>
+				</section>
+			</section>
+			<section>
+				<h3> Private members in JavaScript </h3>
+				<pre><code class="javascript">
+function Cat(adj) {
+ this.adjective = adj;
+ var kittySecret = "..";
+ this.hearSecret = function(secret){
+  kittySecret = secret;
+ }
+ this.tellSecret = function() {
+  return kittySecret;
+ }
+}
+				</code></pre>
+			</section>
+			<section>
+				<pre><code class="javascript">
+console.log(zombieCat.tellSecret());
+zombieCat.hearSecret("ashley eats baby kittens");
+console.log(zombieCat.tellSecret());
+console.log(zombieCat.kittySecret);
+				</code></pre>
+
+			</section>
+			<section>
+				The end!
+			</section>
+			<!-- Inheritance -->
+			<section>
+				<section>
+					<aside class="notes">
+						JavaScript only supports single inheritence.
+					</aside>
+					<h3> Inheritance </h3>
+					<img src="../images/OOP/prototypal-inheritance.jpg">
+				</section>
+				<section>
+					<h3> Person </h3>
+					<pre><code class="javascript">
+// Define the Person constructor
+var Person = function(name) {
+  this.name = name;
+};
+
+// Add a couple of methods to Person.prototype
+Person.prototype.speak = function(){
+  console.log("My name is " + this.name);
+};
+Person.prototype.walk = function(){
+  console.log(this.name + " is walking");
+};
+					</code></pre>
+				</section>
+				<section>
+					<aside class="notes">
+// Create a Student.prototype object that inherits from Person.prototype.
+// Note: A common error here is to use "new Person()" to create the
+// Student.prototype. That's incorrect for several reasons, not least 
+// that we don't have anything to give Person for the "name" 
+// argument. The correct place to call Person is above, where we call 
+// it from Student.
+					</aside>
+					<h3> Student </h3>
+					<pre><code class="javascript">
+// Define the Student constructor
+function Student(name, major) {
+  // Call the parent constructor, making sure (using Function#call)
+  // that "this" is set correctly during the call
+  Person.call(this, name);
+  // Initialize our student-specific properties
+  this.major = major;
+};
+Student.prototype = Object.create(Person.prototype); // See note below
+
+// Set the "constructor" property to refer to Student
+Student.prototype.constructor = Student;
+
+// Replace the "sayHello" method
+Student.prototype.sayHello = function(){
+console.log("Hello, I'm " + this.firstName + ". I'm majoring in "
+              + this.major + ".");
+};
+					</code></pre>
+				</section>
+				<section>
+					<h3> Test it out </h3>
+					<pre><code class="javascript">
+// Example usage:
+var student1 = new Student("Janet", "Applied Physics");
+student1.sayHello();   // "Hello, I'm Janet. I'm majoring in Applied Physics."
+student1.walk();       // "I am walking!"
+student1.sayGoodBye(); // "Goodbye!"
+
+// Check that instanceof works correctly
+console.log(student1 instanceof Person);  // true 
+console.log(student1 instanceof Student); // true
+					</code></pre>
+				</section>
+				<section>
+					<h3>Object.create()</h3>
+					<pre><code class="javascript">
+function createObject(proto) {
+    function ctor() { }
+    ctor.prototype = proto;
+    return new ctor();
+}
+					</code></pre>
+				</section>
+				<section>
+					<aside class="notes">
+					</aside>
+					<h3>Encapsulation</h3>
+					In the previous example, Student does not need to know how the Person class's walk() method is implemented, but still can use that method; the Student class doesn't need to explicitly define that method unless we want to change it. This is called encapsulation, by which every class packages data and methods into a single unit.
+				</section>
+				<section>
+					<aside class="notes">
+						Abstraction is a mechanism that permits modeling the current part of the working problem. This can be achieved by inheritance (specialization), or composition. JavaScript achieves specialization by inheritance, and composition by letting instances of classes be the values of attributes of other objects.
+
+						The JavaScript Function class inherits from the Object class (this demonstrates specialization of the model) and the Function.prototype property is an instance of Object (this demonstrates composition).
+					</aside>
+					<h3>Abstraction</h3>
+				</section>
+				<section>
+					<h3>Polymorphism</h3>
+				</section>
+			</section>
+
+			<!-- The end -->
+			<section>
+				<h3> That's all folks! </h3>
+			</section>	
+		</section>
+		</div> <!-- end slides -->
+		<footer>
+			<span class='footer-title'>Intro to JavaScript</span>
+			<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+		</footer>
+	</div> <!-- end reveal -->
+	<script src="../reveal/lib/js/head.min.js"></script>
+	<script src="../reveal/js/reveal.min.js"></script>
+
+	<script>
+		// Full list of configuration options available here:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+
+			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
+
+			// Optional libraries used to extend on reveal.js
+			dependencies: [
+				{ src: '../reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../reveal/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+				{ src: '../reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+			]
+		});
+
+	</script>
+</body>
+</html>
