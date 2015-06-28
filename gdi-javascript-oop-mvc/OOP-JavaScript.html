@@ -138,19 +138,6 @@ blueCat.speak("why am I blue? this is weird");
 blackCat.speak("i love Halloween");
 </code></pre>
 				</section>
-<!-- 				<section>
-					Excercise
-					<ul>
-						1. Create an 
-					</ul>
-				</section> -->
-<!-- 				<section>
-					<h3> object.method() </h3>
-				</section>
-				<section>
-					<h3> Example</h3>
-					Simple example of objects and methods
-				</section> -->
 				<section>
 					<aside class="notes">
 						This argument can be used to specify the object that the function must be applied to. For non-method functions, this is irrelevant, hence the null.
@@ -317,127 +304,6 @@ book.read();
 				</section>
 			</section>
 
-			<!-- Extending Objects in JavaScript -->
-			<section>
-				<section>
-					<h3>Extending Objects in JavaScript</h3>
-  <pre><code class="javascript">
- // The constructor function
-function PaperBack(title, author, numPages, cover){
- Book.call(this, title, author, numPages);
- this.cover = cover;
-}
-// Extending the Book object
-PaperBack.prototype = Object.create(Book.prototype);
-// A new method on this object
-PaperBack.prototype.burn = function () {
-  console.log("Omg, you burnt all " + this.numPages + "pages");
-  this.numPages = 0;
-}
-// Instantiating a new object
-var paperback =  new PaperBack("1984", "George Orwell", 250, "cover.jpg");
-paperback.read();
-paperback.burn();
- </code></pre>
-				</section>
-				<section>
-					<h3><a href="http://www.teaching-materials.org/jsoo/exercise_extend.html">Exercise Time!</a></h3>
-				</section>
-			</section>
-
-			<!-- Clearer Constructor -->
-			<section>
-				<section>
-					<h3>Clearer Constructor</h3>
- <pre><code class="javascript">
-function Book(title, author, numPages) {
- this.title = title;
- this.author = author;
- this.numPages = numPages;
- this.currentPage = 0;
-}
-
-var book = new Book("Robot Dreams", "Isaac Asimov", 320);
-</code></pre>
-    
-  <p>versus:</p>
-  <pre><code class="javascript">
-function Book(config) {
- this.title = config.title;
- this.author = config.author;
- this.numPages = config.numPages;
- this.currentPage = 0;
-}
-var book = new Book({
- title: "Robot Dreams",
- author: "Isaac Asimov",
- numPages: 320});
-  </code></pre>
-				</section>				
-			<section>
-				<h3>Optional Arguments</h3>
-				<pre><code class="javascript">
-function Book(config) {
- this.title = config.title;
- this.author = config.author;
- this.numPages = config.numPages;
- this.currentPage = 0;
-}
-var book = new Book({
- title: "Robot Dreams",
- author: "Isaac Asimov",
- numPages: 320
-});
-				</code></pre>
-    
- 				<p>versus:</p>
-				<pre><code class="javascript">
-function Book(config){ 
-  config = config || {};
-  this.title = config.title || "Untitled";
-  this.author = config.author || "Unknown";
-  this.numPages = config.numPages || 100;
-  this.currentPage = 0;
-}
-
-var book = new Book({
- title: "Robot Dreams",
- numPages: 320
-});
-				</code></pre>
-
-				</section>
-				<section>
- 					<h3><a href="http://www.teaching-materials.org/jsoo/exercise_constructors.html">Exercise Time!</a></h3>
-				</section>
-			</section>
-			<section>
-				<h3> Private members in JavaScript </h3>
-				<pre><code class="javascript">
-function Cat(adj) {
- this.adjective = adj;
- var kittySecret = "..";
- this.hearSecret = function(secret){
-  kittySecret = secret;
- }
- this.tellSecret = function() {
-  return kittySecret;
- }
-}
-				</code></pre>
-			</section>
-			<section>
-				<pre><code class="javascript">
-console.log(zombieCat.tellSecret());
-zombieCat.hearSecret("ashley eats baby kittens");
-console.log(zombieCat.tellSecret());
-console.log(zombieCat.kittySecret);
-				</code></pre>
-
-			</section>
-			<section>
-				The end!
-			</section>
 			<!-- Inheritance -->
 			<section>
 				<section>
@@ -538,6 +404,126 @@ function createObject(proto) {
 				</section>
 			</section>
 
+			<!-- Extending Objects in JavaScript -->
+			<section>
+				<section>
+					<h3>Extending Objects in JavaScript</h3>
+  <pre><code class="javascript">
+ // The constructor function
+function PaperBack(title, author, numPages, cover){
+ Book.call(this, title, author, numPages);
+ this.cover = cover;
+}
+// Extending the Book object
+PaperBack.prototype = Object.create(Book.prototype);
+// A new method on this object
+PaperBack.prototype.burn = function () {
+  console.log("Omg, you burnt all " + this.numPages + "pages");
+  this.numPages = 0;
+}
+// Instantiating a new object
+var paperback =  new PaperBack("1984", "George Orwell", 250, "cover.jpg");
+paperback.read();
+paperback.burn();
+ </code></pre>
+				</section>
+				<section>
+					<h3><a href="http://www.teaching-materials.org/jsoo/exercise_extend.html">Exercise Time!</a></h3>
+				</section>
+			</section>
+
+			<!-- Clearer Constructor -->
+			<section>
+				<section>
+					<h3>Clearer Constructor</h3>
+ <pre><code class="javascript">
+function Book(title, author, numPages) {
+ this.title = title;
+ this.author = author;
+ this.numPages = numPages;
+ this.currentPage = 0;
+}
+
+var book = new Book("Robot Dreams", "Isaac Asimov", 320);
+</code></pre>
+    
+  <p>versus:</p>
+  <pre><code class="javascript">
+function Book(config) {
+ this.title = config.title;
+ this.author = config.author;
+ this.numPages = config.numPages;
+ this.currentPage = 0;
+}
+var book = new Book({
+ title: "Robot Dreams",
+ author: "Isaac Asimov",
+ numPages: 320});
+  </code></pre>
+				</section>				
+			<section>
+				<h3>Optional Arguments</h3>
+				<pre><code class="javascript">
+function Book(config) {
+ this.title = config.title;
+ this.author = config.author;
+ this.numPages = config.numPages;
+ this.currentPage = 0;
+}
+var book = new Book({
+ title: "Robot Dreams",
+ author: "Isaac Asimov",
+ numPages: 320
+});
+				</code></pre>
+    
+ 				<p>versus:</p>
+				<pre><code class="javascript">
+function Book(config){ 
+  config = config || {};
+  this.title = config.title || "Untitled";
+  this.author = config.author || "Unknown";
+  this.numPages = config.numPages || 100;
+  this.currentPage = 0;
+}
+
+var book = new Book({
+ title: "Robot Dreams",
+ numPages: 320
+});
+				</code></pre>
+
+				</section>
+				<section>
+ 					<h3><a href="http://www.teaching-materials.org/jsoo/exercise_constructors.html">Exercise Time!</a></h3>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3> Private members in JavaScript </h3>
+					<pre><code class="javascript">
+function Cat(adj) {
+ this.adjective = adj;
+ var kittySecret = "..";
+ this.hearSecret = function(secret){
+  kittySecret = secret;
+ }
+ this.tellSecret = function() {
+  return kittySecret;
+ }
+}
+					</code></pre>
+				</section>
+				<section>
+					<pre><code class="javascript">
+	console.log(zombieCat.tellSecret());
+	zombieCat.hearSecret("ashley eats baby kittens");
+	console.log(zombieCat.tellSecret());
+	console.log(zombieCat.kittySecret);
+					</code></pre>
+
+				</section>
+			</section>
 			<!-- The end -->
 			<section>
 				<h3> That's all folks! </h3>
@@ -564,14 +550,14 @@ function createObject(proto) {
 			transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
 
 			// Optional libraries used to extend on reveal.js
-			// dependencies: [
-			// 	{ src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-			// 	{ src: '../reveal.js/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-			// 	{ src: '../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-			// 	{ src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-			// 	{ src: '../reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-			// 	{ src: '../reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-			// ]
+			dependencies: [
+				// { src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				// { src: '../reveal.js/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				// { src: '../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				// { src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				// { src: '../reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+				{ src: '../reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+			]
 		});
 
 	</script>
