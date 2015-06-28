@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+ <head>
+  <title>My Bookshelf</title>
+  <style>
+body {
+  font-family: Arial, sans-serif;
+}
+
+#bookshelf {
+  background: url(bookshelf_bg.png);
+  width: 760px;
+  height: 570px;
+  padding-top: 90px;
+}
+
+.book {
+  height: 140px;
+  float: left;
+  margin: 0px 10px;
+}
+
+.book img {
+  height: 80px;
+}
+
+.book-review {
+  width: 200px;
+  background: #ffcc00;
+  border: #99000;
+  padding: 5px;
+}
+  </style>
+ </head>
+
+ <div id="bookshelf">
+
+ </div>
+
+<script type="text/javascript" src="jquery.min.js"></script>
+ <script>
+function BookModel(bookJSON) {
+  this.title     = bookJSON.title || 'Untitled';
+  this.author    = bookJSON.author || 'Unknown author';
+  this.asin      = bookJSON.asin;
+  this.thumbnail = bookJSON.thumbnail;
+  this.rating    = bookJSON.rating;
+  this.review    = bookJSON.review || 'No review.';
+  this.url       = 'http://www.amazon.com/gp/product/' + this.asin + '?tag=amazonsimilar-20';
+}
+
+function BookCollection(booksJSON) {
+  this.items = [];
+
+  for (var i = 0; i < booksJSON.length; i++) {
+    this.items.push(new BookModel(booksJSON[i]));
+  }
+}
+
+BookCollection.prototype.sort = function() {
+  this.items.sort(function(bookA, bookB){
+    return (bookA.rating - bookB.rating);
+  });
+};
+
+function BookShelfView(books) {
+  // Fill in code here.
+}
+
+function fetchBooks() {
+	// Fetch and sort the data
+	$.ajax({type: "GET",
+	  url: "./books.json",
+	  dataType: "json",
+
+	  success: function(booksJSON) {
+            // Build a collection.
+            // Sort it.
+            // Build a shelf.
+            // Display it
+            $('#bookshelf').append(shelf);
+	 }
+	});
+}
+
+$(document).ready(function() {
+	fetchBooks();
+});
+ </script>
+</html>
